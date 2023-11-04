@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <div id='page' className='flex min-h-screen max-h-screen items-center flex-row bg-stone-800 px-5 font-sans'>
-      <div id='left' className='basis-1/4 flex-col items-center'>
-        <svg id='logo' className="w-1/2 fill-neutral-500" strokeLinecap="round" strokeLinejoin="round" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.000000 600.000000" preserveAspectRatio="xMidYMid meet" role="img">
+    <div id='page' className='flex min-h-screen max-h-screen items-center flex-row bg-stone-800 font-sans'>
+      <div id='left' className='flex basis-1/4 flex-col items-start mx-5'>
+        <svg id='logo' className="self-center w-1/2 fill-neutral-500" strokeLinecap="round" strokeLinejoin="round" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.000000 600.000000" preserveAspectRatio="xMidYMid meet" role="img">
           <title>A stylized logo of a B and an S combined into one</title>
           <g transform="translate(0.000000,600.000000) scale(0.200000,-0.200000)"> 
             <path strokeWidth='30' d="M950 2588 c0 -2 -51 -223 -114 -493 -78 -337 -110 -492 -102 -497 6 -3 234 -65 506 -138 272 -72 514 -138 537 -146 84 -30 131 -119 119 -222 -15 -129 -101 -210 -272 -258 -82 -23 -527 -34 -520 -13 12 36 108 470 105 473 -9 6 -520 138 -524 135 -3 -4 -235 -1001 -235 -1014 0 -3 271 -5 603 -2 518 3 614 6 690 21 265 52 446 140 571 278 112 123 162 271 154 454 -4 91 -8 111 -37 169 -38 77 -98 130 -207 182 -73 35 -117 45 -691 164 -173 35 -213 47 -213 60 0 13 34 165 95 427 5 22 8 22 148 22 305 0 397 -44 397 -189 0 -94 -38 -164 -113 -211 l-27 -17 172 -46 c95 -26 203 -54 240 -64 l67 -17 55 38 c108 75 177 191 196 333 42 316 -174 515 -608 562 -85 9 -992 17 -992 9z"/> 
@@ -15,7 +15,7 @@ export default function Home() {
           <h2 className='text-l text-stone-500'>
             <a className='hover:underline decoration-dotted' href='https://gomomentus.com' target='_blank'>Momentus Technologies</a>
           </h2>
-          <h3 className='text-l text-stone-200'>A truly cool guy that you definitely want to hire.</h3>
+          <h3 className='text-l text-stone-200 mt-3'>A truly cool guy that you definitely want to hire.</h3>
         </div>
         <ul id='nav'>
           <li className='text-stone-500'>
@@ -37,7 +37,7 @@ export default function Home() {
             </a>
           </li>
         </ul>
-        <div id='contact' className="flex flex-row mt-10 space-x-4">
+        <div id='links' className="flex flex-row mt-10 space-x-4 self-center">
           <a href='#contactForm'>
             <svg className='ease-in-out duration-300 w-6 h-6 stroke-neutral-500 hover:stroke-orange-500' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} role="link">
               <title>Send me an email</title>
@@ -60,7 +60,7 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <div id='center' className='border-2 flex flex-col relative basis-3/4 min-h-screen text-right'>
+      <div id='center' className='border-2 flex flex-col relative basis-3/4 min-h-screen text-right mx-5'>
         <div>
           02
         </div>
