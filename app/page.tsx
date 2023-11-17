@@ -14,7 +14,7 @@ export default function Home() {
   }
 
   return (
-    <div id='page' className='flex min-h-screen items-center flex-row bg-stone-800 font-sans'>
+    <div id='page' className='flex min-h-screen items-center flex-row bg-gradient-to-tr from-neutral-800 to-stone-800 bg-stone-800 font-sans'>
       <div id='left' className='flex basis-1/4 flex-col items-start mx-5'>
         <svg id='logo' className="self-center w-1/2 fill-neutral-500" strokeLinecap="round" strokeLinejoin="round" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.000000 600.000000" preserveAspectRatio="xMidYMid meet" role="img">
           <title>A stylized logo of a B and an S combined into one</title>
@@ -50,7 +50,7 @@ export default function Home() {
             </button>
           </li>
         </ul>
-        <div id='links' className="flex flex-row mt-10 space-x-4 self-center">
+        <div id='links' className="flex flex-row mt-10 gap-x-4 self-center">
           <button onClick={() => setViewedContent("contact")}>
             <svg className='ease-in-out duration-300 w-6 h-6 stroke-neutral-500 hover:stroke-orange-500' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} role="link">
               <title>Email me using my form</title>

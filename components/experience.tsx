@@ -14,12 +14,12 @@ export default function Experience() {
             <div className="text-base text-white">
               Summary here
             </div>
-            <div className="flex flex-row space-x-1 mt-2">
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">.NET</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">SQL</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">Angular</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">Durandal</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">Aurelia</div>
+            <div className="flex flex-row flex-wrap gap-1 mt-2">
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">.NET</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">SQL</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">Angular</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">Durandal</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">Aurelia</div>
             </div>
           </div>
           <div className="text-base text-slate-500 text-right pt-1">
@@ -32,9 +32,9 @@ export default function Experience() {
             <div className="text-base text-white">
               Summary here
             </div>
-            <div className="flex flex-row space-x-1 mt-2">
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">Python</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">Linux</div>
+            <div className="flex flex-row flex-wrap gap-1 mt-2">
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">Python</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">Linux</div>
             </div>
           </div>
           <div className="text-base text-slate-500 text-right pt-1">
@@ -47,10 +47,10 @@ export default function Experience() {
             <div className="text-base text-white">
               Summary here
             </div>
-            <div className="flex flex-row space-x-1 mt-2">
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">.NET</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">SQL</div>
-              <div className="bg-orange-600 text-stone-700 px-3 rounded-full">Durandal</div>
+            <div className="flex flex-row flex-wrap gap-1 mt-2">
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">.NET</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">SQL</div>
+              <div className="bg-orange-600 text-stone-800 px-3 rounded-full">Durandal</div>
             </div>
           </div>
         </div>
