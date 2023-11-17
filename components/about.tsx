@@ -6,7 +6,7 @@ export default function About() {
         I am a full-stack developer based in Saint Louis, Missouri. I take pleasure in learning new technologies, and view each project as a creative challenge.
         <br />
         <br />
-        My journey started back in 2011 when I built custom programs on my TI-84 and small python applications to help me with day-to-day tasks. Fast-forward through high school and graduating Saint Louis University with a degree in Computer Science; it's easy to see that my interest in software development has not waned.
+        My journey started back in 2011 when I built custom programs on my TI-84 and small python applications to help me with day-to-day tasks. Fast-forward through high school and graduating Saint Louis University with a degree in Computer Science; it&apos;s easy to see that my interest in software development has not waned.
         <br />
         <br />
         My professional and personal career has led me to opportunities such as full-stack development on an enterprise tech-stack, experimenting with my own file management API, building various Unity and Godot games, constructing and managing a discord management bot used on servers with hundreds of users, and even crafting from scratch the website you&apos;re looking at.
