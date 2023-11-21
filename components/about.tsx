@@ -2,7 +2,7 @@ export default function About() {
   return (
     <div>
       <h1 className="text-4xl text-white mb-2">About Me</h1>
-      <div className="text-white flex-wrap">
+      <div className="text-white flex-wrap mb-3">
         I am a full-stack developer based in Saint Louis, Missouri. I take pleasure in learning new technologies, and view each project as a creative challenge.
         <br />
         <br />

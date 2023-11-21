@@ -17,7 +17,7 @@ export default function Home() {
   const [viewedContent, setViewedContent] = useState("about");
   
   return (
-    <div id='page' className='flex min-h-screen items-center flex-row bg-gradient-to-tr from-slate-900 to-slate-800 bg-slate-800 font-sans'>
+    <div id='page' className='flex h-screen items-center flex-row bg-gradient-to-tr from-slate-900 to-slate-800 bg-slate-800 font-sans'>
       <div id='left' className='flex basis-1/4 flex-col items-start mx-5'>
         <svg id='logo' className="self-center w-1/2 fill-neutral-500" strokeLinecap="round" strokeLinejoin="round" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.000000 600.000000" preserveAspectRatio="xMidYMid meet" role="img">
           <title>A stylized logo of a B and an S combined into one</title>
@@ -80,7 +80,7 @@ export default function Home() {
           <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2023</a>
         </div>
       </div>
-      <main id='center' className='border-y-2 border-cyan-500 flex flex-col relative basis-1/2 mx-5 text-left justify-center h-1/2'>
+      <main id='center' className='border-y-2 border-cyan-500 flex flex-col relative basis-1/2 mx-5 text-left justify-start max-h-[66.666667%] overflow-y-auto'>
         <div className={viewedContent !== "about"?"hidden":""}>
           <About />
         </div>

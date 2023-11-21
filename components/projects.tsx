@@ -14,7 +14,7 @@ export default function Projects() {
           </a>
           <a href="https://github.com/scytail/nextjs-site" className="flex flex-col border-2 border-slate-500 rounded-xl p-2 hover:bg-slate-700/75 duration-100" target="_blank">
             <h2 className="text-2xl font-bold">Portfolio Site</h2>
-            <span className="flex-grow text-base">You are here! Built from scratch using Next.JS framework and deployed on the Vercel network, this portfolio site boasts a snappy interface and a clean, cool design.</span>
+            <span className="flex-grow text-base">You are here! Built from scratch using the NextJS framework and deployed on the Vercel network, this portfolio site boasts a snappy interface and a clean, cool design.</span>
             <div className="flex flex-row flex-wrap gap-1 mt-2">
               <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Next.js</div>
               <div className="bg-sky-500 text-slate-800 px-3 rounded-full">React</div>
@@ -32,7 +32,7 @@ export default function Projects() {
           </a>
           <a href="https://github.com/scytail/LiteCrawl" className="flex flex-col border-2 border-slate-500 rounded-xl p-2 hover:bg-slate-700/75 duration-100" target="_blank">
             <h2 className="text-2xl font-bold">LiteCrawl</h2>
-            <span className="flex-grow text-base">A Unity game inspired by Loren Schmidt's musings. Explore layers of a procedurally-generated dungeon while defeating enemies and survive as long as possible.</span>
+            <span className="flex-grow text-base">A Unity game inspired by <a href="https://twitter.com/lorenschmidt" className="hover:underline decoration-dotted" target="_blank">Loren Schmidt's</a> musings. Explore layers of a procedurally-generated dungeon while defeating enemies and survive as long as possible.</span>
             <div className="flex flex-row flex-wrap gap-1 mt-2">
               <div className="bg-sky-500 text-slate-800 px-3 rounded-full">C#</div>
               <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Unity</div>
