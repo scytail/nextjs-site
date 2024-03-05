@@ -77,7 +77,7 @@ export default function Home() {
           </a>
         </div>
         <div id='footer' className='my-20 text-slate-700'>
-          <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2023</a>
+          <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2024</a>
         </div>
       </div>
       <main id='center' className='border-y-2 border-cyan-500 flex flex-col relative basis-1/2 mx-5 text-left justify-start max-h-[66.666667%] overflow-y-auto'>
