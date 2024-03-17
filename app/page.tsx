@@ -22,7 +22,7 @@ class ChangeContentReducerAction implements IContentReducerAction {
 }
 
 export default function Home() {
-  const [viewedContent, dispatch]: [string, any] = useReducer(contentReducer, "about");
+  const [viewedContent, dispatch]: [string, Function] = useReducer(contentReducer, "about");
   
   function handleSetContent(pageName: string) {
     dispatch(new ChangeContentReducerAction(pageName));
