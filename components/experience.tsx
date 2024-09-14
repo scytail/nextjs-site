@@ -15,7 +15,7 @@ export default function Experience() {
             <h4 className="font-bold mt-3">Responsibilities</h4>
             <ul className="list-disc list-outside">
               <li className="ml-4">Work with teams of developers to design databases and business-layer code</li>
-              <li className="ml-4">Interface with customers and product owners to build out accessible client-side visual UI elements to their specifications</li>
+              <li className="ml-4">Interface with customers and product owners to build out accessible web-based UI controls to their specifications</li>
               <li className="ml-4">Squash bugs in a fast-pased, agile environment</li>
             </ul>
             <h4 className="font-bold mt-3">Projects</h4>
