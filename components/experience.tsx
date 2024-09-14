@@ -8,14 +8,14 @@ export default function Experience() {
           <div className="text-sm text-slate-500 italic">5+ years</div>
         </div>
         <div className="col-span-2">
-          <h2 className="text-2xl text-white">Software Developer II</h2>
+          <h2 className="text-2xl text-white">Senior Software Engineer</h2>
           <h3 className="text-lg text-slate-500"><a href="https://gomomentus.com" className="hover:underline decoration-dotted" target="_blank">Momentus Technologies</a></h3>
           <div className="text-base text-white">
             Design, develop, and deliver high quality solutions for a diverse array of products in the event management world, and maintain existing enterprise applications to the satisfaction of relevant stakeholders.
             <h4 className="font-bold mt-3">Responsibilities</h4>
             <ul className="list-disc list-outside">
-              <li className="ml-4">Work with teams of developers in database design and business-layer code</li>
-              <li className="ml-4">Interface with customers and product owners to build out client-side visual UI elements to their specifications</li>
+              <li className="ml-4">Work with teams of developers to design databases and business-layer code</li>
+              <li className="ml-4">Interface with customers and product owners to build out accessible client-side visual UI elements to their specifications</li>
               <li className="ml-4">Squash bugs in a fast-pased, agile environment</li>
             </ul>
             <h4 className="font-bold mt-3">Projects</h4>
