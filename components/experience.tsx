@@ -32,6 +32,7 @@ export default function Experience() {
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Angular</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Durandal</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Aurelia</div>
+            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Agile</div>
           </div>
         </div>
         <div className="text-base text-slate-500 text-right pt-1">
@@ -86,6 +87,7 @@ export default function Experience() {
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">.NET</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">SQL</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Durandal</div>
+            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Waterfall</div>
           </div>
         </div>
       </div>
