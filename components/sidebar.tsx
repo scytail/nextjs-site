@@ -10,7 +10,7 @@ export default function Sidebar( {navbarLinkClickHandler, viewedContent}: any ) 
         <div className='pl-10'>
           <div id='title' className='mb-8'>
             <h1 className='text-4xl text-white'>Ben Schwabe</h1>
-            <h2 className='text-2xl text-slate-500'>Full-Stack Engineer</h2>
+            <h2 className='text-2xl text-slate-500'>Software Engineer</h2>
             <h2 className='text-lg text-zinc-500'>
               <a className='text-base hover:underline decoration-dotted' href='https://gomomentus.com' target='_blank'>Momentus Technologies</a>
             </h2>
