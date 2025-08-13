@@ -67,7 +67,7 @@ export default function Sidebar( {navbarLinkClickHandler, viewedContent}: any ) 
           </a>
         </div>
         <div id='footer' className='my-20 text-slate-700'>
-          <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2024</a>
+          <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2025</a>
         </div>
     </div>
   )
