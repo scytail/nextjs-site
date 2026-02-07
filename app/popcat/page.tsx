@@ -15,20 +15,20 @@ export default function PopcatPage() {
   }
   return (
     <main
-      className="min-h-screen flex justify-center items-center bg-gray-900"
+      className="h-screen flex justify-center items-center bg-gray-900"
       onMouseDown={setPopcatOpen}
       onMouseUp={setPopcatClosed}
       onTouchStart={setPopcatOpen}
       onTouchEnd={setPopcatClosed}
     >
       <Image
-      src={isPopcatOpen ? "/popcat-open.jpg" : "/popcat-closed.jpg"}
-      alt={isPopcatOpen ? "Popcat Open" : "Popcat Closed"}
-      width={400}
-      height={400}
-      draggable={false}
-      style={{ userSelect: "none" }}
-      className="rounded-lg"
+        src={isPopcatOpen ? "/popcat-open.jpg" : "/popcat-closed.jpg"}
+        alt={isPopcatOpen ? "Popcat Open" : "Popcat Closed"}
+        width={400}
+        height={400}
+        draggable={false}
+        style={{ userSelect: "none" }}
+        className="rounded-lg"
       />
     </main>
   );
