@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   return (
-    <div className='flex items-center flex-row bg-gradient-to-tr from-slate-900 to-slate-800 bg-slate-800 font-sans'>
+    <div className='h-screen flex items-center flex-row bg-gradient-to-tr from-slate-900 to-slate-800 bg-slate-800 font-sans'>
       <Sidebar navbarLinkClickHandler={handleSetContent} viewedContent={viewedContent} />
       <main className='border-y-2 border-cyan-500 flex flex-col relative basis-1/2 mx-5 text-left justify-start max-h-[66.666667%] overflow-y-auto px-2.5'>
         <div className={viewedContent !== "about"?"hidden":""}>
