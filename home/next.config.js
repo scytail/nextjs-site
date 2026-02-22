@@ -4,11 +4,11 @@ const nextConfig = {
         return [
             {
                 source: '/writing',
-                destination: `${process.env.BASE_DOMAIN}/writing`,
+                destination: `${process.env.WRITING_DOMAIN}/`,
             },
             {
                 source: '/writing-static/:path+',
-                destination: `${process.env.BASE_DOMAIN}/writing-static/:path+`,
+                destination: `${process.env.WRITING_DOMAIN}/:path+`,
             },
         ]
     }
