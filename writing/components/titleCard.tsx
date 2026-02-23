@@ -16,8 +16,8 @@ export default function TitleCard({ title, description, icon }: TitleCardProps) 
   )
 
   return (
-    <article className="flex items-start gap-4 border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow bg-white">
-      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-700">
+    <article className="flex items-start gap-4 border rounded-lg p-4 shadow-xs hover:shadow-md transition-shadow bg-white">
+      <div className="shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-700">
         {icon ?? DefaultIcon}
       </div>
       <div>
