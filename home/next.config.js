@@ -7,6 +7,10 @@ const nextConfig = {
                 destination: `${process.env.WRITING_DOMAIN}/writing`,
             },
             {
+                source: '/writing/:path+',
+                destination: `${process.env.WRITING_DOMAIN}/writing/:path+`,
+            },
+            {
                 source: '/writing-static/:path+',
                 destination: `${process.env.WRITING_DOMAIN}/writing-static/:path+`,
             },
