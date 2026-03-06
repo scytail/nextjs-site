@@ -1,43 +1,38 @@
 @import 'tailwindcss';
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+.markdown {
+  /* Basic styles for markdown content */
+  h1 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
   }
-}
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  h3 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  ul {
+    margin: 0.5em 0;
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  ol {
+    margin: 0.5em 0;
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+  p {
+    margin: 0.5em 0;
+  }
 }
