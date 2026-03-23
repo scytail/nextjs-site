@@ -1,4 +1,9 @@
 import { Chapter } from '../models/chapter';
+import { createClient } from '@supabase/supabase-js'
+
+const url: string = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const anonKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabase = createClient(url, anonKey)
 
 export async function getChapter(titleId: string, chapterNumber: number): Promise<Chapter | null> {
   // TODO: Implement DB logic
@@ -13,6 +18,10 @@ export async function getChapter(titleId: string, chapterNumber: number): Promis
 export async function getChapterList(titleId: string): Promise<Chapter[]> {
   // TODO: Implement DB logic
   return fakeData.filter((c) => c.titleId === titleId).sort((a, b) => a.chapterNumber - b.chapterNumber);
+}
+
+async function getChapterBlob(blobPath: string): Promise<string> {
+  return "";
 }
 
 const fakeData: Chapter[] = [
