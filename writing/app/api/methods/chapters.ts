@@ -1,35 +1,66 @@
-import { Chapter } from '../models/chapter';
-import { createClient } from '@supabase/supabase-js'
+'use server';
 
-const url: string = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const anonKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-const supabase = createClient(url, anonKey)
+import { supabaseClient } from './base';
+import { Tables } from '../models/database.types';
 
-export async function getChapter(titleId: string, chapterNumber: number): Promise<Chapter | null> {
-  // TODO: Implement DB logic
-  
-  // Note that the blob from the file server is a json of data including a reader, which will probably have to be leveraged, either here or on the client:
-  // https://vercel.com/docs/vercel-blob/using-blob-sdk#get
-  const document: Chapter | null = fakeData.find((c) => c.chapterNumber === chapterNumber && c.titleId === titleId) || null;
+/**
+ * Get the list of chapters for a given title ID
+ * @param titleId - The ID of the title to fetch chapters for
+ * @returns Promise containing the list of chapters
+ */
+export async function getChapterList(titleId: string): Promise<Tables<'chapters'>[]> {
+  const { data, error } = await supabaseClient.from('chapters').select('*').eq('title_id', titleId).order('chapter_number', { ascending: true });
 
-  return document;
+  if (error) {
+    throw new Error(`Error fetching chapter list for title ID ${titleId}: ${error.message}`);
+  }
+
+  return data;
 }
 
-export async function getChapterList(titleId: string): Promise<Chapter[]> {
-  // TODO: Implement DB logic
-  return fakeData.filter((c) => c.titleId === titleId).sort((a, b) => a.chapterNumber - b.chapterNumber);
+/**
+ * Get the chapter count for a given title ID
+ * @param titleId - The ID of the title to get the chapter count for
+ * @returns Promise containing the chapter count for the title
+ */
+export async function getTitleChapterCount(titleId: string): Promise<number> {
+  const chapterCount = await supabaseClient.from('chapters').select('id', { count: 'exact' }).eq('title_id', titleId);
+
+  if (chapterCount.error) {
+    throw new Error(`Error fetching chapter count: ${chapterCount.error.message}`);
+  }
+
+  return chapterCount.count || 0;
 }
 
-async function getChapterBlob(blobPath: string): Promise<string> {
-  return "";
+/**
+ * Get the metadata for a specific chapter
+ * @param titleId - The ID of the title to fetch chapter metadata for
+ * @param chapterNumber - The number of the chapter to fetch metadata for
+ * @returns Promise containing the chapter metadata
+ */
+export async function getChapterMetadata(titleId: string, chapterNumber: number): Promise<Tables<'chapters'>> {
+  const { data, error } = await supabaseClient.from('chapters').select('*').eq('title_id', titleId).eq('chapter_number', chapterNumber).single();
+
+  if (error) {
+    throw new Error(`Error fetching chapter data: ${error.message}`);
+  }
+
+  return data;
 }
 
-const fakeData: Chapter[] = [
-  {
-    id: "1",
-    titleId: "1",
-    chapterNumber: 1,
-    blob: `# header 1
+/**
+ * Get the blob content for a specific chapter
+ * @param blobPath - The path to the blob content
+ * @returns Promise containing the blob content
+ */
+export async function getChapterBlob(blobPath: string): Promise<string> {
+  // TODO: grab from blob storage
+  return fakeFile;
+}
+
+
+const fakeFile: string = `# header 1
 ## header 2
 ### header 3
 #### header 4
@@ -48,59 +79,6 @@ This is an ordered list:
 
 1. numbered one
 2. numbered two
-3. numbered three`,
-    addedOn: new Date(),
-    updatedOn: new Date(),
-  },
-  {
-    id: "5",
-    titleId: "1",
-    chapterNumber: 3,
-    blob: 'content goes here',
-    addedOn: new Date(),
-    updatedOn: new Date(),
-  },
-  {
-    id: "2",
-    titleId: "1",
-    chapterNumber: 2,
-    blob: 'content goes here',
-    addedOn: new Date(),
-    updatedOn: new Date(),
-  },
-  {
-    id: "3",
-    titleId: "2",
-    chapterNumber: 1,
-    blob: `# header 1
-## header 2
-### header 3
-#### header 4
+3. numbered three
 
-normal *italic* **bold**
-
-This is an unordered list:
-
-- bullet one
-- bullet two
-- bullet three
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-This is an ordered list:
-
-1. numbered one
-2. numbered two
-3. numbered three`,
-    addedOn: new Date(),
-    updatedOn: new Date(),
-  },
-  {
-    id: "4",
-    titleId: "3",
-    chapterNumber: 1,
-    blob: 'content goes here',
-    addedOn: new Date(),
-    updatedOn: new Date(),
-  },
-];
+This is one final paragraph to end the document.`;

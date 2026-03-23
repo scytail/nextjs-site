@@ -1,52 +1,48 @@
-import type { Title } from '../models/title';
+'use server';
 
-export async function getTitles(): Promise<Title[]> {
-  // TODO: Implement DB logic
-  const documents: Title[] = fakeData;
+import { supabaseClient } from './base';
+import { Tables } from '../models/database.types';
 
-  return documents;
+/**
+ * Get all titles
+ * @returns Promise containing the list of titles
+ */
+export async function getTitles(): Promise<Tables<'titles'>[]> {
+  const { data, error } = await supabaseClient.from('titles').select();
+
+  if (error) {
+    throw new Error(`Error fetching titles: ${error.message}`);
+  }
+
+  return data;
 }
 
-export async function getTitle(titleId: string): Promise<Title | null> {
-  // TODO: Implement DB logic
-  const title: Title | null = fakeData.find((t) => t.id === titleId) || null;
+/**
+ * Get a title by its ID
+ * @param titleId - the ID of the title to fetch
+ * @returns Promise containing the title
+ */
+export async function getTitle(titleId: string): Promise<Tables<'titles'>> {
+  const { data, error } = await supabaseClient.from('titles').select('*').eq('id', titleId).single();
 
-  return title;
+  if (error) {
+    throw new Error(`Error fetching title with ID ${titleId}: ${error.message}`);
+  }
+
+  return data;
 }
 
-export async function getTitleByURL(url: string): Promise<Title | null> {
-  // TODO: Implement DB logic
-  const title: Title | null = fakeData.find((t) => t.urlTitle === url) || null;
+/**
+ * Get a title by its URL
+ * @param url - the URL of the title to fetch
+ * @returns Promise containing the title
+ */
+export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
+  const { data, error } = await supabaseClient.from('titles').select('*').eq('title_url', url).single();
 
-  return title;
+  if (error) {
+    throw new Error(`Error fetching title with URL ${url}: ${error.message}`);
+  }
+
+  return data;
 }
-
-const fakeData: Title[] = [
-  {
-  id: "1",
-  urlTitle: 'novel-title-1',
-  title: 'Novel Title 1',
-  summary: 'This is an example summary for the title.',
-  chapterCount: 2,
-  addedOn: new Date(),
-  updatedOn: new Date(),
-  },
-  {
-  id: "2",
-  urlTitle: 'short-story-title-2',
-  title: 'Short Story Title 2',
-  summary: 'This is an example summary for the title.',
-  chapterCount: 1,
-  addedOn: new Date(),
-  updatedOn: new Date(),
-  },
-  {
-  id: "3",
-  urlTitle: 'short-story-title-3',
-  title: 'Short Story Title 3',
-  summary: 'This is an example summary for the title.',
-  chapterCount: 1,
-  addedOn: new Date(),
-  updatedOn: new Date(),
-  },
-];
