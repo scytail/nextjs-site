@@ -8,16 +8,30 @@ export default async function ChapterView({ titleId, chapterNumber }: { titleId:
     throw new Error(`Metadata for chapter ${chapterNumber} not found for title ${titleId}`)
   }
   
-  const chapterText = await getChapterBlob(chapterMetadata.chapter_url)
-  if (!chapterText) {
+  const chapterTextStream = await getChapterBlob(chapterMetadata.chapter_url)
+  if (!chapterTextStream) {
     throw new Error(`Chapter content not found for chapter ${chapterNumber} in title ${titleId}`)
   }
 
   return (
     <>
       <div className="markdown">
-        <Markdown>{chapterText}</Markdown>
+        <Markdown>{await readableStreamToString(chapterTextStream)}</Markdown>
       </div>
     </>
   );
+}
+
+async function readableStreamToString(stream: ReadableStream): Promise<string> {
+  const reader = stream.getReader();
+  let text = '';
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) {
+      break;
+    }
+    text += new TextDecoder().decode(value);
+  }
+
+  return text;
 }

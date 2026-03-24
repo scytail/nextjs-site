@@ -2,6 +2,7 @@
 
 import { supabaseClient } from './base';
 import { Tables } from '../models/database.types';
+import { get } from '@vercel/blob';
 
 /**
  * Get the list of chapters for a given title ID
@@ -54,9 +55,14 @@ export async function getChapterMetadata(titleId: string, chapterNumber: number)
  * @param blobPath - The path to the blob content
  * @returns Promise containing the blob content
  */
-export async function getChapterBlob(blobPath: string): Promise<string> {
-  // TODO: grab from blob storage
-  return fakeFile;
+export async function getChapterBlob(blobPath: string): Promise<ReadableStream> {
+  const result = await get(blobPath, { access: 'private' });
+ 
+  if (result?.statusCode !== 200) {
+    throw new Error(`Error fetching chapter blob content: ${result?.statusCode}`);
+  }
+ 
+  return result.stream;
 }
 
 

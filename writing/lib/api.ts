@@ -75,7 +75,7 @@ export async function getChapterMetadata(titleId: string, chapterNumber: number)
  * @param blobPath - The path to the chapter blob content
  * @returns Promise containing the blob content
  */
-export async function getChapterBlob(blobPath: string): Promise<string> {
+export async function getChapterBlob(blobPath: string): Promise<ReadableStream> {
   const blobContent = await chapterAPI.getChapterBlob(blobPath);
 
   if (!blobContent) {
