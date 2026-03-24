@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import TitleCard from '../../components/titleCard'
 import { getTitles } from '@/lib/api'
 
+export const revalidate = 60; // revalidate every 60 seconds
+
 export const metadata: Metadata = {
-  title: 'Writing',
-  description: 'Testing out markdown',
+  title: 'The Writing Desk',
+  description: 'A collection of written works, fresh from the mind of an amateur wordsmith.',
 }
 
 export default async function Page() {
