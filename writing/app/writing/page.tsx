@@ -12,10 +12,11 @@ export default async function Page() {
 
   return (
     <>
-      <header className="py-8 container mx-auto">
-          <h1 className="text-4xl font-semibold">Writing</h1>
-      </header>
-      <main className="container mx-auto px-4">
+      <main className="container mx-auto px-4 max-w-6xl">
+        <div className="py-8">
+          <h1 className="text-4xl font-semibold italic">Titles</h1>
+          <p className="text-gray-700 text-lg mt-2">A collection of my written works, freely available to read online.</p>
+        </div>
         <div className="space-y-4">
           {titles.map((t) => (
             <TitleCard

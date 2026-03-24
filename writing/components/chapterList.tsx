@@ -9,8 +9,8 @@ export default async function ChapterList({title}: {title: Tables<'titles'>}) {
     }
   
     return (
-      <>
-        <h2 className="text-xl font-semibold mb-4">Chapters:</h2>
+      <article>
+        <h2 className="text-2xl font-semibold mb-4">Chapters:</h2>
         <div className="space-y-2 ml-4">
           {chapters.map((chapter) => (
             <div key={chapter.id}>
@@ -22,6 +22,6 @@ export default async function ChapterList({title}: {title: Tables<'titles'>}) {
             </div>
           ))}
         </div>
-      </>
+      </article>
     );
 }

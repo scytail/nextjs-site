@@ -1,4 +1,4 @@
-import ChapterView from "@/components/chapterView";
+import ChapterView from "@/components/MarkdownView";
 import { getTitleByURL } from "@/lib/api";
 import { notFound } from "next/dist/client/components/navigation";
 
@@ -22,10 +22,10 @@ export default async function ChapterPage(
   
   return (
     <>
-      <header className="py-8 container mx-auto">
-        <h2 className="text-4xl font-semibold">{title.title_name} - Chapter {chapterValue}</h2>
+      <header className="py-8 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-semibold italic">{title.title_name} - Chapter {chapterValue}</h2>
       </header>
-      <main className="container mx-auto px-4">
+      <main className="mx-auto px-4 max-w-6xl">
         <ChapterView titleId={title.id} chapterNumber={chapterValue} />
       </main>
     </>

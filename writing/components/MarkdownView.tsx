@@ -15,9 +15,9 @@ export default async function ChapterView({ titleId, chapterNumber }: { titleId:
 
   return (
     <>
-      <div className="markdown">
+      <article className="markdown">
         <Markdown>{await readableStreamToString(chapterTextStream)}</Markdown>
-      </div>
+      </article>
     </>
   );
 }
