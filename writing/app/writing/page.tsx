@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import TitleCard from '../../components/titleCard'
-import { Title } from '../api/models/title'
 import { getTitles } from '@/lib/api'
 
 export const metadata: Metadata = {
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const titles: Title[] = await getTitles()
+  const titles = await getTitles()
 
   return (
     <>
@@ -21,9 +20,9 @@ export default async function Page() {
           {titles.map((t) => (
             <TitleCard
               key={t.id}
-              title={t.title}
-              url={t.urlTitle}
-              summary={t.summary}
+              title={t.title_name}
+              url={t.title_url}
+              summary={t.summary || ''}
             />
           ))}
         </div>

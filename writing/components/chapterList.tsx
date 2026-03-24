@@ -1,7 +1,7 @@
-import { getChapterList } from "@/app/api/methods/chapters";
-import { Title } from "@/app/api/models/title";
+import { getChapterList } from "@/lib/api";
+import { Tables } from "@/app/api/models/database.types";
 
-export default async function ChapterList({title}: {title: Title}) {
+export default async function ChapterList({title}: {title: Tables<'titles'>}) {
   const chapters = await getChapterList(title.id)
   
     if (!chapters?.length) {
@@ -15,9 +15,9 @@ export default async function ChapterList({title}: {title: Title}) {
           {chapters.map((chapter) => (
             <div key={chapter.id}>
               <a className="text-gray-700 text-base hover:text-blue-500 w-fit ease-in-out duration-200"
-                 href={`/writing/${title.urlTitle}/${chapter.chapterNumber}`}>
+                 href={`/writing/${title.title_url}/${chapter.chapter_number}`}>
                 <span className="inline-block mr-2">›</span>
-                Chapter {chapter.chapterNumber}
+                Chapter {chapter.chapter_number}
               </a>
             </div>
           ))}

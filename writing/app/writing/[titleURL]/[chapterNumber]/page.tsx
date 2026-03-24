@@ -1,5 +1,5 @@
 import ChapterView from "@/components/chapterView";
-import { getChapter, getTitleByURL } from "@/lib/api";
+import { getTitleByURL } from "@/lib/api";
 import { notFound } from "next/dist/client/components/navigation";
 
 export default async function ChapterPage(
@@ -23,7 +23,7 @@ export default async function ChapterPage(
   return (
     <>
       <header className="py-8 container mx-auto">
-        <h2 className="text-4xl font-semibold">{title.title} - Chapter {chapterValue}</h2>
+        <h2 className="text-4xl font-semibold">{title.title_name} - Chapter {chapterValue}</h2>
       </header>
       <main className="container mx-auto px-4">
         <ChapterView titleId={title.id} chapterNumber={chapterValue} />
