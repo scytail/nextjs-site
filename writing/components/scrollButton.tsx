@@ -1,15 +1,16 @@
 'use client';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
+
 export default function ScrollButton() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className='fixed bottom-6 right-6 bg-slate-200 hover:bg-blue-500 hover:text-white text-gray-700 rounded-full w-12 h-12 flex items-center justify-center shadow-md transition-colors duration-200 cursor-pointer'
+      className='fixed bottom-6 right-6 bg-slate-200 hover:bg-blue-500 hover:text-white text-gray-600 rounded-full w-12 h-12 flex items-center justify-center shadow-md transition-colors duration-200 cursor-pointer'
       aria-label='Scroll to top'
     >
-      <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 15l7-7 7 7' />
-      </svg>
+      <FontAwesomeIcon icon={faChevronUp} className='text-xl' />
     </button>
   );
 }

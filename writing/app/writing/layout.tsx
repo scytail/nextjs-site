@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import ScrollButton from '../../components/scrollButton'
 import TitleLink from '../../components/TitleLink'
 
 const inter = Inter({ subsets: ['latin'] })
+config.autoAddCss = false
 
 export const metadata: Metadata = {
   title: 'Ben - Coding-Cat.net',
