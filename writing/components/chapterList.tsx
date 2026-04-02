@@ -14,7 +14,7 @@ export default async function ChapterList({title}: {title: Tables<'titles'>}) {
         <div className="space-y-2 ml-4">
           {chapters.map((chapter) => (
             <div key={chapter.id}>
-              <a className="text-gray-700 text-base hover:text-blue-500 w-fit ease-in-out duration-200"
+              <a className="text-gray-700 dark:text-gray-300 text-base hover:text-blue-500 w-fit ease-in-out duration-200"
                  href={`/writing/${title.title_url}/${chapter.chapter_number}`}>
                 <span className="inline-block mr-2">›</span>
                 Chapter {chapter.chapter_number}

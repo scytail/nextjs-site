@@ -17,7 +17,7 @@ export default async function Page() {
       <main className="container mx-auto px-4 max-w-6xl">
         <div className="py-8">
           <h1 className="text-4xl font-semibold italic">Titles</h1>
-          <p className="text-gray-700 text-lg mt-2">A collection of my written works, freely available to read online.</p>
+          <p className="text-gray-700 dark:text-gray-300 text-lg mt-2">A collection of my written works, freely available to read online.</p>
         </div>
         <div className="space-y-4">
           {titles.map((t) => (
