@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ['latin'] })
 config.autoAddCss = false
 
 export const metadata: Metadata = {
-  title: 'Ben - Coding-Cat.net',
-  description: 'Software Engineer and Wordsmith',
+  title: 'The Writing Desk',
+  description: 'Unprovoked tales from a Wordsmith',
 }
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="data-theme">
-          <div className='flex min-h-screen bg-slate-200 dark:bg-slate-900'>
+          <div className='flex min-h-screen from-slate-200 to-slate-100 bg-gradient-to-tr dark:from-slate-900 dark:to-slate-800'>
             <Sidebar />
             <main className='flex-1 flex flex-col'>
               {children}
