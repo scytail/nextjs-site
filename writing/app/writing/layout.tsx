@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import ScrollButton from '../../components/scrollButton'
-import NavBar from '@/components/navBar'
+import Sidebar from '@/components/SidebarServer'
 
 const inter = Inter({ subsets: ['latin'] })
 config.autoAddCss = false
@@ -24,10 +24,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="data-theme">
-          <div className='min-h-screen bg-slate-300 dark:bg-zinc-700'>
-            <NavBar />
-            {children}
-            <ScrollButton />
+          <div className='flex min-h-screen bg-slate-200 dark:bg-slate-900'>
+            <Sidebar />
+            <main className='flex-1 flex flex-col'>
+              {children}
+              <ScrollButton />
+            </main>
           </div>
         </ThemeProvider>
       </body>

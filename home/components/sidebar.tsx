@@ -21,19 +21,19 @@ export default function Sidebar( {navbarLinkClickHandler, viewedContent}: any ) 
         </div>
         <ul id='nav'>
           <li className='text-base text-zinc-500'>
-            <button onClick={() => navbarLinkClickHandler("about")} className={"group flex items-center hover:font-bold hover:text-white duration-200 cursor-pointer".concat(" ", viewedContent === "about"? "text-teal-500":"")}>
+            <button onClick={() => navbarLinkClickHandler("about")} className={"group flex items-center hover:font-bold hover:text-white duration-200 cursor-pointer".concat(" ", viewedContent === "about"? "text-cyan-500":"")}>
               <span className="h-px w-0 bg-white mr-4 group-hover:w-4 group-hover:mr-2 duration-200"></span>
               About
             </button>
           </li>
           <li className='text-zinc-500'>
-            <button onClick={() => navbarLinkClickHandler("experience")} className={"group flex items-center hover:font-bold hover:text-white duration-200 cursor-pointer".concat(" ", viewedContent === "experience"? "text-teal-500":"")}>
+            <button onClick={() => navbarLinkClickHandler("experience")} className={"group flex items-center hover:font-bold hover:text-white duration-200 cursor-pointer".concat(" ", viewedContent === "experience"? "text-cyan-500":"")}>
               <span className="h-px w-0 bg-white mr-4 group-hover:w-4 group-hover:mr-2 duration-200"></span>
               Experience
             </button>
           </li>
           <li className='text-zinc-500'>
-            <button onClick={() => navbarLinkClickHandler("projects")} className={"group flex items-center hover:font-bold hover:text-white duration-200 cursor-pointer".concat(" ", viewedContent === "projects"? "text-teal-500":"")}>
+            <button onClick={() => navbarLinkClickHandler("projects")} className={"group flex items-center hover:font-bold hover:text-white duration-200 cursor-pointer".concat(" ", viewedContent === "projects"? "text-cyan-500":"")}>
               <span className="h-px w-0 bg-white mr-4 group-hover:w-4 group-hover:mr-2 duration-200"></span>
               Projects
             </button>
@@ -63,7 +63,7 @@ export default function Sidebar( {navbarLinkClickHandler, viewedContent}: any ) 
         </a>
       </div>
       <div id='footer' className='my-20 text-slate-700'>
-        <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2025</a>
+        <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2026</a>
       </div>
     </div>
   )
