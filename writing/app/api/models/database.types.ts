@@ -41,28 +41,28 @@ export type Database = {
     Tables: {
       chapters: {
         Row: {
-          added_on: string
+          added_at: string
           chapter_number: number
           chapter_url: string
           id: string
           title_id: string
-          updated_on: string
+          updated_at: string
         }
         Insert: {
-          added_on?: string
+          added_at?: string
           chapter_number?: number
           chapter_url: string
           id?: string
           title_id: string
-          updated_on?: string
+          updated_at?: string
         }
         Update: {
-          added_on?: string
+          added_at?: string
           chapter_number?: number
           chapter_url?: string
           id?: string
           title_id?: string
-          updated_on?: string
+          updated_at?: string
         }
         Relationships: [
           {
@@ -76,28 +76,28 @@ export type Database = {
       }
       titles: {
         Row: {
-          added_on: string
+          added_at: string
           id: string
           summary: string | null
           title_name: string
           title_url: string
-          updated_on: string
+          updated_at: string
         }
         Insert: {
-          added_on?: string
+          added_at?: string
           id?: string
           summary?: string | null
           title_name: string
           title_url: string
-          updated_on?: string
+          updated_at?: string
         }
         Update: {
-          added_on?: string
+          added_at?: string
           id?: string
           summary?: string | null
           title_name?: string
           title_url?: string
-          updated_on?: string
+          updated_at?: string
         }
         Relationships: []
       }
