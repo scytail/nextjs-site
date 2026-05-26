@@ -78,6 +78,7 @@ export type Database = {
         Row: {
           added_at: string
           id: string
+          private: boolean
           summary: string | null
           title_name: string
           title_url: string
@@ -86,6 +87,7 @@ export type Database = {
         Insert: {
           added_at?: string
           id?: string
+          private?: boolean
           summary?: string | null
           title_name: string
           title_url: string
@@ -94,6 +96,7 @@ export type Database = {
         Update: {
           added_at?: string
           id?: string
+          private?: boolean
           summary?: string | null
           title_name?: string
           title_url?: string
