@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import TitleCard from '../../components/titleCard'
-import { getTitles } from '@/lib/api'
+import { getPublicTitles } from '@/lib/api'
 
 export const revalidate = 60; // ignore cached fetch requests every 60 seconds
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const titles = await getTitles()
+  const titles = await getPublicTitles()
 
   return (
     <>

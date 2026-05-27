@@ -4,14 +4,14 @@ import { supabaseClient } from './base';
 import { Tables } from '../models/database.types';
 
 /**
- * Get all titles
+ * Get all public titles
  * @returns Promise containing the list of titles
  */
-export async function getTitles(): Promise<Tables<'titles'>[]> {
-  const { data, error } = await supabaseClient.from('titles').select();
+export async function getPublicTitles(): Promise<Tables<'titles'>[]> {
+  const { data, error } = await supabaseClient.from('titles').select().eq('private', false);
 
   if (error) {
-    throw new Error(`Error fetching titles: ${error.message}`);
+    throw new Error(`Error fetching public titles: ${error.message}`);
   }
 
   return data;

@@ -6,7 +6,6 @@ import { useTheme } from 'next-themes';
 import ActionButton from './sidebar/actionButton';
 import LinkElement from './sidebar/linkElement';
 import { usePathname } from 'next/navigation';
-import { getTitles } from '@/app/api/methods/titles';
 import { Tables } from '@/app/api/models/database.types';
 
 function BackNavigation() {
