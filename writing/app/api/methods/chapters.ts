@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseClient } from './base';
+import { supabasePublicSchemaClient } from './base';
 import { Tables } from '../models/database.types';
 import { get } from '@vercel/blob';
 
@@ -10,7 +10,7 @@ import { get } from '@vercel/blob';
  * @returns Promise containing the list of chapters
  */
 export async function getChapterList(titleId: string): Promise<Tables<'chapters'>[]> {
-  const { data, error } = await supabaseClient.from('chapters').select('*').eq('title_id', titleId).order('chapter_number', { ascending: true });
+  const { data, error } = await supabasePublicSchemaClient.from('chapters').select('*').eq('title_id', titleId).order('chapter_number', { ascending: true });
 
   if (error) {
     throw new Error(`Error fetching chapter list for title ID ${titleId}: ${error.message}`);
@@ -25,7 +25,7 @@ export async function getChapterList(titleId: string): Promise<Tables<'chapters'
  * @returns Promise containing the chapter count for the title
  */
 export async function getTitleChapterCount(titleId: string): Promise<number> {
-  const chapterCount = await supabaseClient.from('chapters').select('id', { count: 'exact' }).eq('title_id', titleId);
+  const chapterCount = await supabasePublicSchemaClient.from('chapters').select('id', { count: 'exact' }).eq('title_id', titleId);
 
   if (chapterCount.error) {
     throw new Error(`Error fetching chapter count: ${chapterCount.error.message}`);
@@ -41,7 +41,7 @@ export async function getTitleChapterCount(titleId: string): Promise<number> {
  * @returns Promise containing the chapter metadata
  */
 export async function getChapterMetadata(titleId: string, chapterNumber: number): Promise<Tables<'chapters'>> {
-  const { data, error } = await supabaseClient.from('chapters').select('*').eq('title_id', titleId).eq('chapter_number', chapterNumber).single();
+  const { data, error } = await supabasePublicSchemaClient.from('chapters').select('*').eq('title_id', titleId).eq('chapter_number', chapterNumber).single();
 
   if (error) {
     throw new Error(`Error fetching chapter data: ${error.message}`);

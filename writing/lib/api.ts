@@ -2,6 +2,7 @@
 
 import * as titleAPI from '../app/api/methods/titles';
 import * as chapterAPI from '../app/api/methods/chapters';
+import * as authAPI from '../app/api/methods/auth';
 import { Tables } from '../app/api/models/database.types';
 
 /**
@@ -98,4 +99,8 @@ export async function getChapterList(titleId: string): Promise<Tables<'chapters'
   }
 
   return chapterList;
+}
+
+export async function getUser(userId: string): Promise<Tables<{ schema: 'auth_public' }, 'users' > | undefined> {
+  return await authAPI.getUser(userId);
 }

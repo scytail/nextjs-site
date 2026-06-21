@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseClient } from './base';
+import { supabasePublicSchemaClient } from './base';
 import { Tables } from '../models/database.types';
 
 /**
@@ -8,7 +8,7 @@ import { Tables } from '../models/database.types';
  * @returns Promise containing the list of titles
  */
 export async function getPublicTitles(): Promise<Tables<'titles'>[]> {
-  const { data, error } = await supabaseClient.from('titles').select().eq('private', false);
+  const { data, error } = await supabasePublicSchemaClient.from('titles').select().eq('private', false);
 
   if (error) {
     throw new Error(`Error fetching public titles: ${error.message}`);
@@ -23,7 +23,7 @@ export async function getPublicTitles(): Promise<Tables<'titles'>[]> {
  * @returns Promise containing the title
  */
 export async function getTitle(titleId: string): Promise<Tables<'titles'>> {
-  const { data, error } = await supabaseClient.from('titles').select('*').eq('id', titleId).single();
+  const { data, error } = await supabasePublicSchemaClient.from('titles').select('*').eq('id', titleId).single();
 
   if (error) {
     throw new Error(`Error fetching title with ID ${titleId}: ${error.message}`);
@@ -38,7 +38,7 @@ export async function getTitle(titleId: string): Promise<Tables<'titles'>> {
  * @returns Promise containing the title
  */
 export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
-  const { data, error } = await supabaseClient.from('titles').select('*').eq('title_url', url).single();
+  const { data, error } = await supabasePublicSchemaClient.from('titles').select('*').eq('title_url', url).single();
 
   if (error) {
     throw new Error(`Error fetching title with URL ${url}: ${error.message}`);

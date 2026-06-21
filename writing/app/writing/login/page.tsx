@@ -1,6 +1,4 @@
 import { Suspense } from 'react';
-import { faTowerObservation } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoginForm from '@/components/login-form';
 
 export default function LoginPage() {

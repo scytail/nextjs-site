@@ -68,7 +68,7 @@ export default function LoginForm() {
           </div>
         </div>
         <input type="hidden" name="redirectTo" value={callbackUrl} />
-        <button  aria-disabled={isPending} className="mt-4 rounded-md border-3 px-8 border-gray-200 cursor-pointer hover:bg-cyan-600 ease-in-out duration-200">
+        <button aria-disabled={isPending} className="mt-4 rounded-md border-3 px-8 border-gray-200 cursor-pointer hover:bg-cyan-600 ease-in-out duration-200">
           Log in <FontAwesomeIcon icon={faArrowRight} className="ml-auto h-5 w-5 text-gray-50" />
         </button>
       </div>

@@ -12,6 +12,46 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: "14.4"
   }
+  auth_public: {
+    Tables: {
+      users: {
+        Row: {
+          created_at: string
+          encrypted_password: string
+          id: string
+          updated_at: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          encrypted_password: string
+          id?: string
+          updated_at?: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          encrypted_password?: string
+          id?: string
+          updated_at?: string
+          username?: string
+        }
+        Relationships: []
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   graphql_public: {
     Tables: {
       [_ in never]: never
@@ -238,6 +278,9 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
+  auth_public: {
+    Enums: {},
+  },
   graphql_public: {
     Enums: {},
   },

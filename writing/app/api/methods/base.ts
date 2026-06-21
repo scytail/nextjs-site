@@ -10,4 +10,5 @@ const anonKey: string = process.env.NEXT_PUBLIC_DB_STORAGE_SUPABASE_ANON_KEY || 
 logger.log('Supabase URL:', url);
 logger.log('Supabase Anon Key:', anonKey ? 'Loaded' : 'Not Loaded');
 
-export const supabaseClient = createClient<Database>(url, anonKey)
+export const supabasePublicSchemaClient = createClient<Database>(url, anonKey)
+export const supabasePublicAuthSchemaClient = createClient<Database, "auth_public">(url, anonKey, { db: { schema: 'auth_public' } })
