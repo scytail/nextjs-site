@@ -4,7 +4,7 @@ import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
 import { getUser } from './lib/api';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { Logger } from '@/lib/logger';
 
 const logger = new Logger('Auth');
