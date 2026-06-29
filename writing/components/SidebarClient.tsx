@@ -8,6 +8,12 @@ import LinkElement from './sidebar/linkElement';
 import { usePathname } from 'next/navigation';
 import { Tables } from '@/app/api/models/database.types';
 
+export interface SidebarLinks {
+  id: string;
+  displayText: string;
+  path: string;
+}
+
 function BackNavigation() {
   if (usePathname() === '/writing') {
     return null;
@@ -19,7 +25,7 @@ function BackNavigation() {
   }
 }
 
-export default function SidebarClient({ titles }: { titles: Tables<'titles'>[] }) {
+export default function SidebarClient({ titles }: { titles: SidebarLinks[] }) {
   const { theme, setTheme } = useTheme();
 
   if (usePathname() === '/writing') {
@@ -44,7 +50,7 @@ export default function SidebarClient({ titles }: { titles: Tables<'titles'>[] }
           </li>
           {titles.map((t) => (
             <li key={t.id} className='text-base ml-2'>
-              <LinkElement text={t.title_name} path={t.title_url} />
+              <LinkElement text={t.displayText} path={t.path} />
             </li>
           ))}
         </ul>
