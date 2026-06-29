@@ -11,9 +11,10 @@ type UrlCopyButtonProps = {
 export function UrlCopyButton({ slug }: UrlCopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
-  const fullUrl = `https://${window.location.hostname}/writing/${slug}`;
-
+  
   const handleCopy = async () => {
+    // Note that this will only work in a browser environment after prerender, as window and navigator are not available on the server during the build.
+    const fullUrl = `https://${window.location.hostname}/writing/${slug}`;
     await navigator.clipboard.writeText(fullUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
