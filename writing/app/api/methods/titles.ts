@@ -5,13 +5,27 @@ import { Tables } from '../models/database.types';
 
 /**
  * Get all public titles
- * @returns Promise containing the list of titles
+ * @returns Promise containing the list of titles that are marked as public in the database
  */
 export async function getPublicTitles(): Promise<Tables<'titles'>[]> {
   const { data, error } = await supabasePublicSchemaClient.from('titles').select().eq('private', false);
 
   if (error) {
     throw new Error(`Error fetching public titles: ${error.message}`);
+  }
+
+  return data;
+}
+
+/**
+ * Gets all titles in the database
+ * @returns Promise containing the list of all titles in the database
+ */
+export async function getAllTitles(): Promise<Tables<'titles'>[]> {
+  const { data, error } = await supabasePublicSchemaClient.from('titles').select();
+
+  if (error) {
+    throw new Error(`Error fetching all titles: ${error.message}`);
   }
 
   return data;

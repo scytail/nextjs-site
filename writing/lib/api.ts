@@ -47,10 +47,20 @@ export async function getTitleChapterCount(titleId: string): Promise<number> {
 
 /**
  * Fetch all public titles from the API endpoint
- * @returns Promise containing an array of title data
+ * @returns Promise containing an array of public title data
  */
 export async function getPublicTitles(): Promise<Tables<'titles'>[]> {
   const titles = await titleAPI.getPublicTitles();
+
+  return titles;
+}
+
+/**
+ * Fetch all titles from the API endpoint
+ * @returns Promise containing an array of all title data
+ */
+export async function getAllTitles(): Promise<Tables<'titles'>[]> {
+  const titles = await titleAPI.getAllTitles();
 
   return titles;
 }
