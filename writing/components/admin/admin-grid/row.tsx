@@ -5,11 +5,11 @@ import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { UrlCopyButton } from './urlCopyButton';
 import { ActionButton } from './actionButton';
 
-type AdminTitleRowProps = {
+type AdminGridRowProps = {
   title: Tables<'titles'>;
 };
 
-export function AdminTitleRow({ title }: AdminTitleRowProps) {
+export function AdminGridRow({ title }: AdminGridRowProps) {
   
   return (
     <li className='relative overflow-hidden rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-gray-700 bg-white px-4 py-4 shadow-sm transition hover:border-cyan-400 hover:shadow-md'>

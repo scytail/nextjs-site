@@ -2,7 +2,7 @@ import { signOut } from '@/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import type { Tables } from '@/app/api/models/database.types';
-import { AdminTitleGrid } from '@/components/admin/admin-grid/grid';
+import { AdminGrid } from '@/components/admin/admin-grid/grid';
 import { getAllTitles } from '@/lib/api';
 import FormButton from '@/components/shared/formButton';
 
@@ -27,7 +27,7 @@ export default async function Page() {
       <main className='flex flex-row gap-4 w-3/4 mx-auto'>
         <div className='flex flex-2 flex-col gap-4 border border-slate-300 p-4 dark:border-slate-700 rounded-md'>
             <h2 className='text-xl font-semibold'>Active Titles</h2>
-            <AdminTitleGrid titles={titles} />
+            <AdminGrid titles={titles} />
         </div>
         <div className='flex flex-1 flex-col gap-4 border border-slate-300 p-4 dark:border-slate-700 rounded-md'>
             <h2 className='text-xl font-semibold'>Upload Title</h2>
