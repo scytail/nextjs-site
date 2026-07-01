@@ -2,7 +2,7 @@ import { signOut } from '@/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import type { Tables } from '@/app/api/models/database.types';
-import { AdminTitleGrid } from '@/components/admin-grid/grid';
+import { AdminTitleGrid } from '@/components/admin/admin-grid/grid';
 import { getAllTitles } from '@/lib/api';
 
 export default async function Page() {

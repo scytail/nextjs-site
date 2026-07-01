@@ -1,4 +1,4 @@
-import ChapterView from "@/components/MarkdownView";
+import ChapterView from "@/components/public/MarkdownView";
 import { getTitleByURL } from "@/lib/api";
 import { notFound } from "next/dist/client/components/navigation";
 

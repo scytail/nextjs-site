@@ -1,6 +1,6 @@
 import { getTitleByURL } from "@/lib/api";
-import ChapterList from "@/components/chapterList";
-import ChapterView from "@/components/MarkdownView";
+import ChapterList from "@/components/public/chapterList";
+import ChapterView from "@/components/public/MarkdownView";
 import { notFound } from "next/navigation";
 import { Tables } from "@/app/api/models/database.types";
 import { getTitleChapterCount } from "@/lib/api";

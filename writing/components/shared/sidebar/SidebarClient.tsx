@@ -3,8 +3,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFeatherPointed, faCircleHalfStroke, faHome } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'next-themes';
-import ActionButton from './sidebar/actionButton';
-import LinkElement from './sidebar/linkElement';
+import ActionButton from './actionButton';
+import LinkElement from './linkElement';
 import { usePathname } from 'next/navigation';
 import { Tables } from '@/app/api/models/database.types';
 

@@ -4,8 +4,8 @@ import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import ScrollButton from '../../components/scrollButton'
-import Sidebar from '@/components/SidebarServer'
+import ScrollButton from '../../components/shared/scrollButton'
+import Sidebar from '@/components/shared/sidebar/SidebarServer'
 
 const inter = Inter({ subsets: ['latin'] })
 config.autoAddCss = false

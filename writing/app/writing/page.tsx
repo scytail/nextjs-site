@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import TitleCard from '../../components/titleCard'
+import TitleCard from '../../components/public/titleCard'
 import { getPublicTitles } from '@/lib/api'
 
 export const revalidate = 60; // ignore cached fetch requests every 60 seconds
