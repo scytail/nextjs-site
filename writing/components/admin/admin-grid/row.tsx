@@ -1,7 +1,9 @@
+'use client';
+
 import type { Tables } from '@/app/api/models/database.types';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UrlCopyButton } from './urlCopyButton';
+import { ActionButton } from './actionButton';
 
 type AdminTitleRowProps = {
   title: Tables<'titles'>;
@@ -27,22 +29,21 @@ export function AdminTitleRow({ title }: AdminTitleRowProps) {
         </div>
 
         <div className='flex items-center justify-end gap-2'>
-          <button
-            type='button'
-            className='rounded-md border border-slate-400 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-300 transition hover:border-cyan-400 hover:text-cyan-700 dark:hover:border-cyan-400 dark:hover:text-cyan-400 cursor-pointer'
-            aria-label={`Edit ${title.title_name}`}
-            // TODO: wire up edit action.
-          >
-            <FontAwesomeIcon icon={faPenToSquare} />
-          </button>
-          <button
-            type='button'
-            className='rounded-md border border-rose-400 px-3 py-1.5 text-sm text-rose-700 dark:text-rose-400 transition hover:border-rose-400 hover:bg-rose-100 dark:hover:border-rose-400 dark:hover:bg-rose-900 cursor-pointer'
-            aria-label={`Delete ${title.title_name}`}
-            // TODO: wire up delete action.
-          >
-            <FontAwesomeIcon icon={faTrashCan} />
-          </button>
+          <ActionButton
+            label={`Edit ${title.title_name}`}
+            icon={faPenToSquare}
+            clickHandler={() => {
+              // TODO: Implement edit action
+            }}
+          />
+          <ActionButton
+            label={`Delete ${title.title_name}`}
+            icon={faTrashCan}
+            clickHandler={() => { 
+              // TODO: Implement delete action
+            }}
+            customCss='border-rose-400 text-rose-700 dark:text-rose-400 hover:border-rose-400 hover:bg-rose-100 dark:hover:border-rose-400 dark:hover:bg-rose-900'
+          />
         </div>
       </div>
     </li>
