@@ -4,6 +4,7 @@ import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import type { Tables } from '@/app/api/models/database.types';
 import { AdminTitleGrid } from '@/components/admin/admin-grid/grid';
 import { getAllTitles } from '@/lib/api';
+import FormButton from '@/components/shared/formButton';
 
 export default async function Page() {
   const titles = await getAllTitles();
@@ -20,10 +21,7 @@ export default async function Page() {
             await signOut({ redirectTo: '/writing/login' });
           }}
         >
-          <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-slate-600 p-3 text-sm font-medium hover:bg-cyan-500 hover:text-blue-600">
-            <FontAwesomeIcon icon={faPowerOff} className="w-6" />
-            <label className="hidden md:block">Sign Out</label>
-          </button>
+          <FormButton label='Sign Out' icon={faPowerOff} />
         </form>
       </header>
       <main className='flex flex-row gap-4 w-3/4 mx-auto'>
