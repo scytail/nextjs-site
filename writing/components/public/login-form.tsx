@@ -41,7 +41,7 @@ export default function LoginForm() {
           id="password"
           type="password"
           label="Password"
-          placeholder="Enter password"
+          placeholder="Enter your password"
           required
           minLength={6}
           icon={faKey}
