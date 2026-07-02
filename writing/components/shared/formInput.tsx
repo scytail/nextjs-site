@@ -26,8 +26,9 @@ export default function FormInput({ id, type, label, placeholder, required, minL
         <input
           className="peer rounded-md border py-2 pl-10 text-sm border-2 placeholder:text-gray-500 focus:outline-none border-slate-300 dark:border-slate-700 hover:border-cyan-600 dark:hover:border-cyan-500 focus:border-black dark:focus:border-white"
           id={id}
-          type={type}
           name={id}
+          type={type}
+          accept={type === 'file' ? '.md' : undefined}
           placeholder={placeholder}
           required={required}
           minLength={minLength}

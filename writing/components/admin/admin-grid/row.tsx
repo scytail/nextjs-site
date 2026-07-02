@@ -2,7 +2,7 @@
 
 import type { Tables } from '@/app/api/models/database.types';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { UrlCopyButton } from './urlCopyButton';
+import { UrlCopyButton } from '../urlCopyButton';
 import { ActionButton } from './actionButton';
 
 type AdminGridRowProps = {
