@@ -33,7 +33,7 @@ export default function SidebarClient({ titles }: { titles: SidebarLinks[] }) {
   }
 
   return (
-    <div className="flex basis-1/6 flex-col items-start mx-5 sticky top-0 h-screen">
+    <div className="flex flex-col items-start mx-5 sticky top-0 h-screen">
       <FontAwesomeIcon icon={faFeatherPointed} className='self-center fill-neutral-500 text-2xl text-neutral-500 text-9xl my-10' />
       <div className='pl-10'>
         <div id='title' className='mb-8'>

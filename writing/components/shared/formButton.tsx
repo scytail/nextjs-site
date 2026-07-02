@@ -1,7 +1,12 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function FormButton({ label, icon }: { label: string; icon: IconDefinition }) {
+function Icon({ icon }: { icon?: IconDefinition }) {
+  if (!icon) return null;
+  return <FontAwesomeIcon icon={icon} className="w-6" />;
+}
+
+export default function FormButton({ label, icon }: { label: string; icon?: IconDefinition }) {
   return (
     <button
       type='submit'
@@ -9,7 +14,7 @@ export default function FormButton({ label, icon }: { label: string; icon: IconD
       aria-label={label}
       aria-disabled={true}
     >
-      <FontAwesomeIcon icon={icon} className="w-6" />
+      <Icon icon={icon} />
       <label className="hidden md:block cursor-pointer">{label}</label>
     </button>
   );

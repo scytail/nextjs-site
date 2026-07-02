@@ -21,7 +21,7 @@ export function UrlCopyButton({ slug }: UrlCopyButtonProps) {
   };
 
   return (
-    <div className='flex flex-row rounded-md border border-slate-400 divide-x-1 text-sm text-slate-700 dark:text-slate-300'>
+    <div className='flex flex-row rounded-md border border-slate-400 divide-x-1 text-sm text-slate-700 dark:text-slate-300 min-w-[100px]'>
       <p className='truncate flex-auto py-1.5 px-3' title={slug}>
         {slug}
       </p>

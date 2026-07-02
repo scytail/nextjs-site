@@ -28,8 +28,8 @@ export default function RootLayout({
             <Sidebar />
             <main className='flex-1 flex flex-col'>
               {children}
-              <ScrollButton />
             </main>
+            <ScrollButton />
           </div>
         </ThemeProvider>
       </body>
