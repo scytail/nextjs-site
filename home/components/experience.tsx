@@ -5,7 +5,7 @@ export default function Experience() {
       <div className="text-white flex-wrap grid grid-cols-3 gap-x-10 gap-y-4 mb-4">
         <div className="text-base text-slate-500 text-right pt-1">
           June 2018 - Present
-          <div className="text-sm text-slate-500 italic">5+ years</div>
+          <div className="text-sm text-slate-500 italic">8+ years</div>
         </div>
         <div className="col-span-2">
           <h2 className="text-2xl text-white">Senior Software Engineer</h2>
