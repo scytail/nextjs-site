@@ -2,6 +2,7 @@ import { AdminGrid } from '@/components/admin/admin-grid/grid';
 import FormButton from '@/components/shared/formButton';
 import { getAllTitles } from '@/lib/api';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { redirect } from 'next/dist/client/components/navigation';
 
 export default async function Page() {
   const titles = await getAllTitles();
@@ -12,7 +13,12 @@ export default async function Page() {
         <div className='flex flex-row items-center justify-between'>
           <h2 className='text-xl font-semibold'>Active Titles</h2>
           <span>
-            <FormButton label='Add Title' icon={faPlus} />
+            <form action={async () => {
+              'use server';
+              redirect('/writing/admin/titles');
+            }}>
+              <FormButton label='Add Title' icon={faPlus} />
+            </form>
           </span>
         </div>
         <AdminGrid titles={titles} />
