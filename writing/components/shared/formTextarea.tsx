@@ -1,6 +1,6 @@
 export default function FormTextarea({ id, label, placeholder, required }: { id: string; label: string; placeholder?: string; required?: boolean }) {
   return (
-    <div>
+    <div className='w-full'>
       <label
         className="mb-3 mt-5 text-md font-medium"
         htmlFor={id}

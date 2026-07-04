@@ -12,7 +12,7 @@ export default function FormSwitch({
   disabled?: boolean;
 }) {
   return (
-    <div>
+    <div className='w-full'>
       <label htmlFor={id} className="mb-3 mt-5 text-md font-medium">
         {label}
         <div className="relative flex flex-col w-fit">

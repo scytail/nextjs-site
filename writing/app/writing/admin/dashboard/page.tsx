@@ -15,7 +15,7 @@ export default async function Page() {
           <span>
             <form action={async () => {
               'use server';
-              redirect('/writing/admin/titles');
+              redirect('/writing/admin/title');
             }}>
               <FormButton label='Add Title' icon={faPlus} />
             </form>

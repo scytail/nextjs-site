@@ -5,6 +5,24 @@ type AdminGridProps = {
   titles: Tables<'titles'>[];
 };
 
+function AdminGridContent({ titles }: AdminGridProps) {
+  if (titles.length === 0) {
+    return (
+      <div className='flex flex-col items-center justify-center gap-2 p-4 text-slate-500 dark:text-slate-400'>
+        <p className='text-sm italic'>No content</p>
+      </div>
+    );
+  }
+
+  return (
+    <ul className='flex flex-col gap-2 p-2'>
+      {titles.map((title) => (
+        <AdminGridRow key={title.id} title={title} />
+      ))}
+    </ul>
+  )
+}
+
 export function AdminGrid({ titles }: AdminGridProps) {
   return (
     <section className='overflow-hidden rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-gray-800 dark:border-slate-600 shadow-sm'>
@@ -15,11 +33,7 @@ export function AdminGrid({ titles }: AdminGridProps) {
         <div className='text-right text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400'>Actions</div>
       </div>
 
-      <ul className='flex flex-col gap-2 p-2'>
-        {titles.map((title) => (
-          <AdminGridRow key={title.id} title={title} />
-        ))}
-      </ul>
+      <AdminGridContent titles={titles} />
     </section>
   );
 }
