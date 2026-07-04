@@ -13,7 +13,18 @@ function ConstructIcon({ icon }: { icon?: IconDefinition }) {
   );
 }
 
-export default function FormInput({ id, type, label, placeholder, required, minLength, icon}: { id: string; type: string; label: string; placeholder?: string; required?: boolean; minLength?: number; icon?: IconDefinition }) {
+export type FormInputProps = {
+  id: string;
+  type: string;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  autoFocus?: boolean;
+  minLength?: number;
+  icon?: IconDefinition;
+};
+
+export default function FormInput({ id, type, label, placeholder, required, autoFocus, minLength, icon}: FormInputProps) {
   return (
     <div className='w-full'>
       <label
@@ -32,6 +43,7 @@ export default function FormInput({ id, type, label, placeholder, required, minL
           placeholder={placeholder}
           required={required}
           minLength={minLength}
+          autoFocus={autoFocus}
         />
         {ConstructIcon({ icon })}
       </div>

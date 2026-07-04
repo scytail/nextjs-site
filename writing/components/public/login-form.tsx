@@ -36,6 +36,7 @@ export default function LoginForm() {
           placeholder="Enter your username"
           required
           icon={faAt}
+          autoFocus
         />
         <FormInput
           id="password"
