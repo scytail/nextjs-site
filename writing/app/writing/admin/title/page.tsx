@@ -38,7 +38,7 @@ export default function Page() {
                 onClick={toggleChapterForm} />
             </span>
           </div>
-          <AdminGrid titles={[]} />
+          <AdminGrid columns={['Chapter Number', 'URL Slug']} rowData={[]} />
         </div>
         {
           chapterFormVisible && (
