@@ -1,6 +1,5 @@
 import { Tables } from '@/app/api/models/database.types';
 import { AdminGrid } from '@/components/admin/admin-grid/grid';
-import { AdminGridRow } from '@/components/admin/admin-grid/row';
 import { UrlCopyButton } from '@/components/admin/urlCopyButton';
 import FormButton from '@/components/shared/formButton';
 import { ActionButton } from '@/components/admin/admin-grid/actionButton';

@@ -26,9 +26,6 @@ export default function ChapterForm() {
     >
       <div className='flex flex-col gap-4'>
         <span>
-          <FormInput type='text' id='chapterUrl' label='URL Slug' placeholder='Enter chapter URL' icon={faCode} required />
-        </span>
-        <span>
           <FormInput type='file' id='chapterFile' label='Chapter File' placeholder='Select chapter file' icon={faMarkdown} required />
         </span>
       </div>
