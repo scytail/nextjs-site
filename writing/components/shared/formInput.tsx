@@ -18,13 +18,14 @@ export type FormInputProps = {
   type: string;
   label: string;
   placeholder?: string;
+  value?: string;
   required?: boolean;
   autoFocus?: boolean;
   minLength?: number;
   icon?: IconDefinition;
 };
 
-export default function FormInput({ id, type, label, placeholder, required, autoFocus, minLength, icon}: FormInputProps) {
+export default function FormInput({ id, type, label, placeholder, value, required, autoFocus, minLength, icon}: FormInputProps) {
   return (
     <div className='w-full'>
       <label
@@ -44,6 +45,7 @@ export default function FormInput({ id, type, label, placeholder, required, auto
           required={required}
           minLength={minLength}
           autoFocus={autoFocus}
+          value={value}
         />
         {ConstructIcon({ icon })}
       </div>

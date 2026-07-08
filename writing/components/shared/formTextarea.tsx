@@ -1,4 +1,12 @@
-export default function FormTextarea({ id, label, placeholder, required }: { id: string; label: string; placeholder?: string; required?: boolean }) {
+type FormTextareaProps = {
+  id: string;
+  label: string;
+  placeholder?: string;
+  value?: string;
+  required?: boolean;
+};
+
+export default function FormTextarea({ id, label, placeholder, value, required }: FormTextareaProps) {
   return (
     <div className='w-full'>
       <label
@@ -12,6 +20,7 @@ export default function FormTextarea({ id, label, placeholder, required }: { id:
         id={id}
         name={id}
         placeholder={placeholder}
+        value={value}
         required={required}
       />
     </div>
