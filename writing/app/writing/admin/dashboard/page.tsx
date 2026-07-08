@@ -18,16 +18,16 @@ function GenerateRowElements(titles: Tables<'titles'>[]): React.ReactNode[][] {
         {title.private ? 'Private' : 'Public'}
       </span>,
       <div className='flex items-center justify-end gap-2'>
-          <ActionButton
-            label={`Edit ${title.title_name}`}
-            icon={faPenToSquare}
-          />
-          <ActionButton
-            label={`Delete ${title.title_name}`}
-            icon={faTrashCan}
-            customCss='border-rose-400 text-rose-700 dark:text-rose-400 hover:border-rose-400 hover:bg-rose-100 dark:hover:border-rose-400 dark:hover:bg-rose-900'
-          />
-        </div>
+        <ActionButton
+          label={`Edit ${title.title_name}`}
+          icon={faPenToSquare}
+        />
+        <ActionButton
+          label={`Delete ${title.title_name}`}
+          icon={faTrashCan}
+          customCss='border-rose-400 text-rose-700 dark:text-rose-400 hover:border-rose-400 hover:bg-rose-100 dark:hover:border-rose-400 dark:hover:bg-rose-900'
+        />
+      </div>
     ];
 
     return columnElements;

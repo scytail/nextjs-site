@@ -38,7 +38,7 @@ export default function TitlePageClient({ titleData, chapterRowData }: { titleDa
                 onClick={toggleChapterForm} />
             </span>
           </div>
-          <AdminGrid columns={['Chapter Number', 'File', 'URL']} rowData={chapterRowData} />
+          <AdminGrid columns={['Chapter Number', 'File', 'URL', 'Actions']} rowData={chapterRowData} />
         </div>
         {
           chapterFormVisible && (
