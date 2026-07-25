@@ -45,7 +45,7 @@ export default function FormInput({ id, type, label, placeholder, value, require
           required={required}
           minLength={minLength}
           autoFocus={autoFocus}
-          value={value}
+          defaultValue={value}
         />
         {ConstructIcon({ icon })}
       </div>

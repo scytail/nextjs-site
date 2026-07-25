@@ -21,6 +21,10 @@ function GenerateRowElements(titles: Tables<'titles'>[]): React.ReactNode[][] {
         <ActionButton
           label={`Edit ${title.title_name}`}
           icon={faPenToSquare}
+          clickHandler={async () => {
+            'use server';
+            redirect(`/writing/admin/title/${title.title_url}`);
+          }}
         />
         <ActionButton
           label={`Delete ${title.title_name}`}

@@ -20,7 +20,7 @@ export default function FormSwitch({
             id={id}
             name={id}
             type="checkbox"
-            value="true"
+            defaultValue="true"
             defaultChecked={defaultChecked}
             disabled={disabled}
             className="sr-only peer"

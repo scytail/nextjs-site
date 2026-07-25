@@ -22,7 +22,7 @@ function generateChapterRowData(titleURL: string, chapters: Tables<'chapters'>[]
       <div className='space-y-1'>
         <p className='text-sm font-semibold'>{chapter.chapter_url}</p>
       </div>,
-      <ChapterLink chapter={chapter} />,
+      <ChapterLink key={chapter.id} chapter={chapter} />,
       <div className='flex items-center justify-end gap-2'>
         <ActionButton
           label={`Edit ${chapter.chapter_number}`}

@@ -20,7 +20,7 @@ export default function FormTextarea({ id, label, placeholder, value, required }
         id={id}
         name={id}
         placeholder={placeholder}
-        value={value}
+        defaultValue={value}
         required={required}
       />
     </div>
