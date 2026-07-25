@@ -7,13 +7,14 @@ function Icon({ icon }: { icon?: IconDefinition }) {
   return <FontAwesomeIcon icon={icon} className="w-6" />;
 }
 
-export default function FormButton({ label, icon, onClick }: { label: string; icon?: IconDefinition; onClick?: () => void }) {
+export default function FormButton({ label, icon, onClick, disabled }: { label: string; icon?: IconDefinition; onClick?: () => void; disabled?: boolean }) {
   return (
     <button
       type='submit'
       className='flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium bg-slate-300 dark:bg-slate-700 hover:bg-cyan-500 dark:hover:bg-cyan-500 dark:hover:text-slate-900 transition-colors duration-200 cursor-pointer'
       aria-label={label}
       aria-disabled={true}
+      disabled={disabled}
       onClick={onClick}
     >
       <Icon icon={icon} />
