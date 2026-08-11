@@ -60,3 +60,13 @@ export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
 
   return data;
 }
+
+export async function updateTitle(titleId: string, titleData: Partial<Tables<'titles'>>): Promise<Tables<'titles'>> {
+  const { data, error } = await supabasePublicSchemaClient.from('titles').update(titleData).eq('id', titleId).single();
+  
+  if (error) {
+    throw new Error(`Error updating title with ID ${titleId}: ${error.message}`);
+  }
+  
+  return data;
+}

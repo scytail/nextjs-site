@@ -111,6 +111,15 @@ export async function getChapterList(titleId: string): Promise<Tables<'chapters'
   return chapterList;
 }
 
+/**
+ * 
+ * @param userId - The ID of the user to retrieve
+ * @returns Promise containing the user matching the user ID
+ */
 export async function getUser(userId: string): Promise<Tables<{ schema: 'auth_public' }, 'users' > | undefined> {
   return await authAPI.getUser(userId);
+}
+
+export async function updateTitle(titleId: string, titleData: Partial<Tables<'titles'>>): Promise<Tables<'titles'>> {
+  return await titleAPI.updateTitle(titleId, titleData);
 }

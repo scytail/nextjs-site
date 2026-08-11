@@ -4,12 +4,14 @@ import FormInput from "../shared/formInput";
 import FormSwitch from "../shared/formSwitch";
 import FormTextarea from "../shared/formTextarea";
 import { Tables } from "@/app/api/models/database.types";
+import { saveTitle } from "@/lib/actions";
 
 export default function TitleForm({ titleData }: { titleData: Tables<'titles'> | null }) {
   const summary = titleData?.summary || undefined;
 
   return(
-    <form className='flex flex-col gap-2'>
+    <form className='flex flex-col gap-2' action={saveTitle}>
+      <input type='hidden' id='titleId' name='titleId' value={titleData?.id} />
       <div className='flex flex-row gap-4'>
         <span className='flex-1'>
           <FormInput type='text' id='titleName' label='Name' placeholder='Enter title name' value={titleData?.title_name} icon={faHeading} required />
