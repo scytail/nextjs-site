@@ -9,6 +9,12 @@ const nextConfig = {
                 destination: '/writing',
                 permanent: false,
             },
+            {
+                // the root admin path is blank and should redirect to the dashboard for convenience
+                source: '/writing/admin',
+                destination: '/writing/admin/dashboard',
+                permanent: true,
+            }
         ]
     },
 }
