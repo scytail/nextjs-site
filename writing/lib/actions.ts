@@ -3,8 +3,11 @@
 import { Tables } from '@/app/api/models/database.types';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
-import { updateTitle } from "@/lib/api";
+import { createTitle, updateTitle } from "@/lib/api";
 import { refresh } from 'next/cache';
+import { Logger } from './logger';
+
+const logger = new Logger('Actions');
 
 export async function authenticate(
   prevState: string | undefined,
@@ -36,10 +39,11 @@ export async function saveTitle(formData: FormData) {
   const titleId = formData.get('titleId') as string | null;
 
   if (titleId) {
+    logger.log(`Updating title with ID: ${titleId}`);
     await updateTitle(titleId, updatedTitleData);
   } else {
-    // TODO: Implement logic to create a new title if titleId is not provided
-    console.log("saved new");
+    logger.log(`Creating new title with name ${updatedTitleData.title_name}`);
+    await createTitle(updatedTitleData as Tables<'titles'>);
   }
 
   refresh(); // Refresh the page to reflect the changes

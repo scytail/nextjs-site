@@ -6,7 +6,7 @@ import * as authAPI from '../app/api/methods/auth';
 import { Tables } from '../app/api/models/database.types';
 
 /**
- * Fetch a document by ID from the API endpoint
+ * Fetch a document by ID
  * @param id - The document ID
  * @returns Promise containing the document data
  */
@@ -21,8 +21,8 @@ export async function getTitle(id: string): Promise<Tables<'titles'>> {
 }
 
 /**
- * Fetch a document by ID from the API endpoint
- * @param id - The document ID
+ * Fetch a document by URL
+ * @param url - The document URL
  * @returns Promise containing the document data
  */
 export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
@@ -35,6 +35,11 @@ export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
   return title;
 }
 
+/**
+ * Fetch the chapter count for a given title ID
+ * @param titleId - The ID of the title to fetch chapter count for
+ * @returns Promise containing the chapter count
+ */
 export async function getTitleChapterCount(titleId: string): Promise<number> {
   const chapterCount = await chapterAPI.getTitleChapterCount(titleId);
 
@@ -112,7 +117,7 @@ export async function getChapterList(titleId: string): Promise<Tables<'chapters'
 }
 
 /**
- * 
+ * Fetch a user by ID from the API endpoint
  * @param userId - The ID of the user to retrieve
  * @returns Promise containing the user matching the user ID
  */
@@ -120,6 +125,21 @@ export async function getUser(userId: string): Promise<Tables<{ schema: 'auth_pu
   return await authAPI.getUser(userId);
 }
 
+/**
+ * Update a title by ID
+ * @param titleId - The ID of the title to update
+ * @param titleData - Any part of a title row to update
+ * @returns Promise containing the updated title
+ */
 export async function updateTitle(titleId: string, titleData: Partial<Tables<'titles'>>): Promise<Tables<'titles'>> {
   return await titleAPI.updateTitle(titleId, titleData);
+}
+
+/**
+ * Create a new title
+ * @param titleData - The title row to create
+ * @returns Promise containing the created title
+ */
+export async function createTitle(titleData: Tables<'titles'>): Promise<Tables<'titles'>> {
+  return await titleAPI.createTitle(titleData);
 }

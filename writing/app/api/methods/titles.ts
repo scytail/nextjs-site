@@ -70,3 +70,13 @@ export async function updateTitle(titleId: string, titleData: Partial<Tables<'ti
   
   return data;
 }
+
+export async function createTitle(titleData: Tables<'titles'>): Promise<Tables<'titles'>> {
+  const { data, error } = await supabasePublicSchemaClient.from('titles').insert(titleData).single();
+  
+  if (error) {
+    throw new Error(`Error creating title: ${error.message}`);
+  }
+  
+  return data;
+}
