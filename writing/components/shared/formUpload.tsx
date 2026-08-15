@@ -1,0 +1,46 @@
+'use client';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+function ConstructIcon({ icon }: { icon?: IconDefinition }) {
+  if (!icon) {
+    return null;
+  }
+
+  return (
+    <FontAwesomeIcon icon={icon} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 dark:peer-focus:text-gray-100" />
+  );
+}
+
+export type FormUploadProps = {
+  id: string;
+  type: string;
+  label: string;
+  required?: boolean;
+  icon?: IconDefinition;
+};
+
+export default function FormUpload({ id, type, label, required, icon}: FormUploadProps) {
+  return (
+    <div className='w-full'>
+      <label
+        className="mb-3 mt-5 text-md font-medium"
+        htmlFor={id}
+      >
+        {label}
+      </label>
+      <div className="relative">
+        <input
+          className="peer w-full rounded-md border border-dashed py-2 pl-10 text-sm border-2 placeholder:text-gray-500 focus:outline-none border-slate-300 dark:border-slate-700 hover:border-cyan-600 dark:hover:border-cyan-500 focus:border-black dark:focus:border-white cursor-pointer"
+          id={id}
+          name={id}
+          type={type}
+          accept={'.md'}
+          required={required}
+        />
+        {ConstructIcon({ icon })}
+      </div>
+    </div>
+  );
+}

@@ -1,7 +1,7 @@
 import { faCode, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { faMarkdown } from "@fortawesome/free-brands-svg-icons";
 import FormButton from "../shared/formButton";
-import FormInput from "../shared/formInput";
+import FormUpload from "../shared/formUpload";
 
 async function uploadChapter(event: any) {
   event.preventDefault();
@@ -26,7 +26,7 @@ export default function ChapterForm() {
     >
       <div className='flex flex-col gap-4'>
         <span>
-          <FormInput type='file' id='chapterFile' label='Chapter File' placeholder='Select chapter file' icon={faMarkdown} required />
+          <FormUpload type='file' id='chapterFile' label='Chapter File' icon={faMarkdown} required />
         </span>
       </div>
       <FormButton label='Upload Chapter' icon={faUpload} />

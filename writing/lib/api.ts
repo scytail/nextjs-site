@@ -110,7 +110,7 @@ export async function getChapterList(titleId: string): Promise<Tables<'chapters'
   const chapterList = await chapterAPI.getChapterList(titleId);
 
   if (!chapterList || chapterList.length === 0) {
-    throw new Error(`No chapters found for title ID ${titleId}`);
+    return [];
   }
 
   return chapterList;
