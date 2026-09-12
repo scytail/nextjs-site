@@ -4,6 +4,7 @@ import TitlePageClient from "@/components/admin/titlePageClient";
 import { UrlCopyButton } from "@/components/admin/urlCopyButton";
 import { getChapterList, getTitleByURL } from "@/lib/api";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { removeChapter } from "@/lib/actions";
 
 function generateChapterRowData(titleURL: string, chapters: Tables<'chapters'>[]): React.ReactNode[][] {
   function ChapterLink({chapter}: {chapter: Tables<'chapters'>}) {
@@ -32,6 +33,12 @@ function generateChapterRowData(titleURL: string, chapters: Tables<'chapters'>[]
           label={`Delete ${chapter.chapter_number}`}
           icon={faTrashCan}
           customCss='border-rose-400 text-rose-700 dark:text-rose-400 hover:border-rose-400 hover:bg-rose-100 dark:hover:border-rose-400 dark:hover:bg-rose-900'
+          clickHandler={
+            async () => {
+              'use server';
+              await removeChapter(chapter.id, chapter.title_id, chapter.chapter_url.split('/').pop() || '');
+            }
+          }
         />
       </div>
     ];

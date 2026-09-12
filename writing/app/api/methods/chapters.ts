@@ -1,8 +1,8 @@
 'use server';
 
 import { supabasePublicSchemaClient } from './base';
-import { Tables } from '../models/database.types';
-import { get } from '@vercel/blob';
+import { Tables, TablesInsert } from '../models/database.types';
+import { get, put, del, PutBlobResult } from '@vercel/blob';
 
 /**
  * Get the list of chapters for a given title ID
@@ -41,10 +41,26 @@ export async function getTitleChapterCount(titleId: string): Promise<number> {
  * @returns Promise containing the chapter metadata
  */
 export async function getChapterMetadata(titleId: string, chapterNumber: number): Promise<Tables<'chapters'>> {
-  const { data, error } = await supabasePublicSchemaClient.from('chapters').select('*').eq('title_id', titleId).eq('chapter_number', chapterNumber).single();
+  const { data, error } = await supabasePublicSchemaClient.from('chapters').select('*').eq('title_id', titleId).eq('chapter_number', chapterNumber).select().limit(1).single();
 
   if (error) {
     throw new Error(`Error fetching chapter data: ${error.message}`);
+  }
+
+  return data;
+}
+
+/**
+ * Create metadata for a new chapter
+ * @param titleId - The ID of the title to create the chapter for
+ * @param chapterData - The data for the new chapter
+ * @returns Promise containing the created chapter metadata
+ */
+export async function createChapterMetadata(chapterData: TablesInsert<'chapters'>): Promise<Tables<'chapters'>> {
+  const { data, error } = await supabasePublicSchemaClient.from('chapters').insert(chapterData).select().limit(1).single();
+
+  if (error) {
+    throw new Error(`Error creating chapter metadata: ${error.message}`);
   }
 
   return data;
@@ -65,26 +81,37 @@ export async function getChapterBlob(blobPath: string): Promise<ReadableStream> 
   return result.stream;
 }
 
+/**
+ * Upload a blob for a specific chapter
+ * @param blobPath - The path to upload the blob content
+ * @param file - The file to upload
+ * @returns Promise containing the uploaded blob
+ */
+export async function uploadChapterBlob(blobPath: string, file: File): Promise<PutBlobResult> {
+  const result = await put(blobPath, file, { access: 'private', allowOverwrite: true });
+  return result;
+}
 
-const fakeFile: string = `# header 1
-## header 2
-### header 3
-#### header 4
+/**
+ * Delete the metadata for a specific chapter
+ * @param titleId - The ID of the title to delete the chapter for
+ * @param chapterNumber - The number of the chapter to delete
+ * @returns Promise that resolves when the chapter metadata is deleted
+ */
+export async function deleteChapterMetaData(chapterId: string): Promise<void> {
+  const { error } = await supabasePublicSchemaClient.from('chapters').delete().eq('id', chapterId);
 
-normal *italic* **bold**
+  if (error) {
+    throw new Error(`Error deleting chapter metadata: ${error.message}`);
+  }
+}
 
-This is an unordered list:
-
-- bullet one
-- bullet two
-- bullet three
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-This is an ordered list:
-
-1. numbered one
-2. numbered two
-3. numbered three
-
-This is one final paragraph to end the document.`;
+/**
+ * Delete a chapter blob from storage
+ * @param blobPath - The path to the blob to delete
+ * @returns Promise that resolves when the blob is deleted
+ */
+export async function deleteChapterBlob(titleId: string, fileName: string): Promise<void> {
+  const blobPath = `chapters/${titleId}/${fileName}`;
+  await del(blobPath);
+}

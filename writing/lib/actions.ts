@@ -3,7 +3,7 @@
 import { Tables } from '@/app/api/models/database.types';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
-import { createTitle, updateTitle } from "@/lib/api";
+import { createChapter, createTitle, updateTitle, deleteChapter } from "@/lib/api";
 import { refresh } from 'next/cache';
 import { Logger } from './logger';
 
@@ -44,7 +44,25 @@ export async function saveTitle(formData: FormData) {
   } else {
     logger.log(`Creating new title with name ${updatedTitleData.title_name}`);
     await createTitle(updatedTitleData as Tables<'titles'>);
+    // TODO: redirect to edit page for the newly created title
   }
+
+  refresh(); // Refresh the page to reflect the changes
+}
+
+export async function uploadChapter(formData: FormData, titleId: string, chapterNumber: number) {
+  const chapterFile = formData.get('chapterFile') as File;
+  if (!chapterFile) {
+    throw new Error('No file selected');
+  }
+
+  await createChapter(titleId, chapterFile, chapterNumber);
+
+  refresh(); // Refresh the page to reflect the changes
+}
+
+export async function removeChapter(chapterId: string, titleId: string, fileName: string) {
+  await deleteChapter(chapterId, titleId, fileName);
 
   refresh(); // Refresh the page to reflect the changes
 }

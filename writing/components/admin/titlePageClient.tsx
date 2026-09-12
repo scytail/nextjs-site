@@ -49,7 +49,7 @@ export default function TitlePageClient({ titleData, chapterRowData }: { titleDa
                   <FontAwesomeIcon icon={faClose} />
                 </button>
               </div>
-              <ChapterForm />
+              <ChapterForm titleId={titleData?.id || ''} chapterNumber={chapterRowData.length + 1} />
             </div>
         )}
       </div>

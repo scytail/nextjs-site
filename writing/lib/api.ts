@@ -3,7 +3,11 @@
 import * as titleAPI from '../app/api/methods/titles';
 import * as chapterAPI from '../app/api/methods/chapters';
 import * as authAPI from '../app/api/methods/auth';
-import { Tables } from '../app/api/models/database.types';
+import { Tables, TablesInsert } from '../app/api/models/database.types';
+
+import { Logger } from '@/lib/logger';
+
+const logger = new Logger('API');
 
 /**
  * Fetch a document by ID
@@ -142,4 +146,43 @@ export async function updateTitle(titleId: string, titleData: Partial<Tables<'ti
  */
 export async function createTitle(titleData: Tables<'titles'>): Promise<Tables<'titles'>> {
   return await titleAPI.createTitle(titleData);
+}
+
+/**
+ * Create a new chapter for a given title ID
+ * @param titleId - The ID of the title to create the chapter for
+ * @param file - The file to upload as the chapter content
+ * @param chapterData - Any additional data for the chapter
+ * @returns Promise containing the created chapter
+ */
+export async function createChapter(titleId: string, file: File, chapterNumber: number): Promise<Tables<'chapters'>> {
+  const path = `chapters/${titleId}/${file.name}`;
+  const uploadResult = await chapterAPI.uploadChapterBlob(path, file);
+
+  if (!uploadResult) {
+    throw new Error(`Failed to upload chapter blob ${file.name} for title ID ${titleId}`);
+  }
+
+  const completeChapterData: TablesInsert<'chapters'> = {
+    title_id: titleId,
+    chapter_number: chapterNumber,
+    chapter_url: uploadResult.pathname
+  };
+  const createdChapter = await chapterAPI.createChapterMetadata(completeChapterData);
+
+  if (!createdChapter) {
+    await chapterAPI.deleteChapterBlob(titleId, file.name);
+
+    throw new Error(`Failed to create chapter metadata for title ID ${titleId}`);
+  }
+
+  return createdChapter;
+}
+
+export async function deleteChapter(chapterId: string, titleId: string, fileName: string): Promise<void> {
+  logger.log(`Deleting chapter metadata with ID: ${chapterId}`);
+  await chapterAPI.deleteChapterMetaData(chapterId);
+
+  logger.log(`Deleting chapter blob for title ID: ${titleId} and file name: ${fileName}`);
+  await chapterAPI.deleteChapterBlob(titleId, fileName);
 }

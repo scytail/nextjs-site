@@ -3,7 +3,7 @@ import { AdminGrid } from '@/components/admin/admin-grid/grid';
 import { UrlCopyButton } from '@/components/admin/urlCopyButton';
 import FormButton from '@/components/shared/formButton';
 import { ActionButton } from '@/components/admin/admin-grid/actionButton';
-import { getAllTitles } from '@/lib/api';
+import { getAllTitles, deleteChapter } from '@/lib/api';
 import { faPenToSquare, faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { redirect } from 'next/dist/client/components/navigation';
 
