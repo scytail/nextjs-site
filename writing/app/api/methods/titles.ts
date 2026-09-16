@@ -37,7 +37,7 @@ export async function getAllTitles(): Promise<Tables<'titles'>[]> {
  * @returns Promise containing the title
  */
 export async function getTitle(titleId: string): Promise<Tables<'titles'>> {
-  const { data, error } = await supabasePublicSchemaClient.from('titles').select('*').eq('id', titleId).single();
+  const { data, error } = await supabasePublicSchemaClient.from('titles').select('*').eq('id', titleId).limit(1).single();
 
   if (error) {
     throw new Error(`Error fetching title with ID ${titleId}: ${error.message}`);
@@ -52,7 +52,7 @@ export async function getTitle(titleId: string): Promise<Tables<'titles'>> {
  * @returns Promise containing the title
  */
 export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
-  const { data, error } = await supabasePublicSchemaClient.from('titles').select('*').eq('title_url', url).single();
+  const { data, error } = await supabasePublicSchemaClient.from('titles').select('*').eq('title_url', url).limit(1).single();
 
   if (error) {
     throw new Error(`Error fetching title with URL ${url}: ${error.message}`);
@@ -62,7 +62,7 @@ export async function getTitleByURL(url: string): Promise<Tables<'titles'>> {
 }
 
 export async function updateTitle(titleId: string, titleData: Partial<Tables<'titles'>>): Promise<Tables<'titles'>> {
-  const { data, error } = await supabasePublicSchemaClient.from('titles').update(titleData).eq('id', titleId).single();
+  const { data, error } = await supabasePublicSchemaClient.from('titles').update(titleData).eq('id', titleId).select().limit(1).single();
   
   if (error) {
     throw new Error(`Error updating title with ID ${titleId}: ${error.message}`);
@@ -72,7 +72,7 @@ export async function updateTitle(titleId: string, titleData: Partial<Tables<'ti
 }
 
 export async function createTitle(titleData: Tables<'titles'>): Promise<Tables<'titles'>> {
-  const { data, error } = await supabasePublicSchemaClient.from('titles').insert(titleData).single();
+  const { data, error } = await supabasePublicSchemaClient.from('titles').insert(titleData).select().limit(1).single();
   
   if (error) {
     throw new Error(`Error creating title: ${error.message}`);

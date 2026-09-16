@@ -6,6 +6,7 @@ import { AuthError } from 'next-auth';
 import { createChapter, createTitle, updateTitle, deleteChapter } from "@/lib/api";
 import { refresh } from 'next/cache';
 import { Logger } from './logger';
+import { redirect } from 'next/dist/client/components/navigation';
 
 const logger = new Logger('Actions');
 
@@ -43,8 +44,9 @@ export async function saveTitle(formData: FormData) {
     await updateTitle(titleId, updatedTitleData);
   } else {
     logger.log(`Creating new title with name ${updatedTitleData.title_name}`);
-    await createTitle(updatedTitleData as Tables<'titles'>);
-    // TODO: redirect to edit page for the newly created title
+    const createdTitle = await createTitle(updatedTitleData as Tables<'titles'>);
+
+    redirect(`/writing/admin/title/${createdTitle.title_url}`);
   }
 
   refresh(); // Refresh the page to reflect the changes
