@@ -80,3 +80,11 @@ export async function createTitle(titleData: Tables<'titles'>): Promise<Tables<'
   
   return data;
 }
+
+export async function deleteTitle(titleId: string): Promise<void> {
+  const { error } = await supabasePublicSchemaClient.from('titles').delete().eq('id', titleId);
+  
+  if (error) {
+    throw new Error(`Error deleting title with ID ${titleId}: ${error.message}`);
+  }
+}

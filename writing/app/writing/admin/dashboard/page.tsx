@@ -3,9 +3,10 @@ import { AdminGrid } from '@/components/admin/admin-grid/grid';
 import { UrlCopyButton } from '@/components/admin/urlCopyButton';
 import FormButton from '@/components/shared/formButton';
 import { ActionButton } from '@/components/admin/admin-grid/actionButton';
-import { getAllTitles, deleteChapter } from '@/lib/api';
+import { getAllTitles } from '@/lib/api';
 import { faPenToSquare, faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { redirect } from 'next/dist/client/components/navigation';
+import { removeTitle } from '@/lib/actions';
 
 function GenerateRowElements(titles: Tables<'titles'>[]): React.ReactNode[][] {
   return titles.map((title) => {
@@ -30,6 +31,10 @@ function GenerateRowElements(titles: Tables<'titles'>[]): React.ReactNode[][] {
           label={`Delete ${title.title_name}`}
           icon={faTrashCan}
           customCss='border-rose-400 text-rose-700 dark:text-rose-400 hover:border-rose-400 hover:bg-rose-100 dark:hover:border-rose-400 dark:hover:bg-rose-900'
+          clickHandler={async () => {
+            'use server';
+            await removeTitle(title.id);
+          }}
         />
       </div>
     ];

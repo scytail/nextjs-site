@@ -3,7 +3,7 @@
 import { Tables } from '@/app/api/models/database.types';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
-import { createChapter, createTitle, updateTitle, deleteChapter } from "@/lib/api";
+import { createChapter, createTitle, updateTitle, deleteChapter, deleteTitle } from "@/lib/api";
 import { refresh } from 'next/cache';
 import { Logger } from './logger';
 import { redirect } from 'next/dist/client/components/navigation';
@@ -65,6 +65,12 @@ export async function uploadChapter(formData: FormData, titleId: string, chapter
 
 export async function removeChapter(chapterId: string, titleId: string, fileName: string) {
   await deleteChapter(chapterId, titleId, fileName);
+
+  refresh(); // Refresh the page to reflect the changes
+}
+
+export async function removeTitle(titleId: string) {
+  await deleteTitle(titleId);
 
   refresh(); // Refresh the page to reflect the changes
 }

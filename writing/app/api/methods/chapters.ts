@@ -2,7 +2,7 @@
 
 import { supabasePublicSchemaClient } from './base';
 import { Tables, TablesInsert } from '../models/database.types';
-import { get, put, del, PutBlobResult } from '@vercel/blob';
+import { get, put, del, list, PutBlobResult } from '@vercel/blob';
 
 /**
  * Get the list of chapters for a given title ID
@@ -115,3 +115,24 @@ export async function deleteChapterBlob(titleId: string, fileName: string): Prom
   const blobPath = `chapters/${titleId}/${fileName}`;
   await del(blobPath);
 }
+
+/**
+ * Delete all chapter blobs for a specific title
+ * @param titleId - The ID of the title to delete chapter blobs for
+ * @returns Promise that resolves when all chapter blobs for the title are deleted
+ */
+export async function deleteChapterBlobsForTitle(titleId: string): Promise<void> {
+  // Retrieve all blob paths
+  const listResult = await list(); // FIXME: consider batching and adding a cursor to filter down to the paths we care about instead
+  const allBlobPaths = listResult?.blobs.map((blob) => blob.pathname) || [];
+
+  // Filter the blob paths to only include those that belong to the specified title
+  const titleBlobPaths = allBlobPaths.filter((path) => path.startsWith(`chapters/${titleId}/`));
+
+  if (titleBlobPaths.length === 0) {
+    return;
+  }
+
+  await del(titleBlobPaths);
+}
+

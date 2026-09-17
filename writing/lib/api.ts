@@ -149,6 +149,17 @@ export async function createTitle(titleData: Tables<'titles'>): Promise<Tables<'
 }
 
 /**
+ * Delete a title by ID
+ * @param titleId - The ID of the title to delete
+ * @returns Promise resolving when the title is deleted
+ */
+export async function deleteTitle(titleId: string): Promise<void> {
+  await titleAPI.deleteTitle(titleId);
+
+  await chapterAPI.deleteChapterBlobsForTitle(titleId);
+}
+
+/**
  * Create a new chapter for a given title ID
  * @param titleId - The ID of the title to create the chapter for
  * @param file - The file to upload as the chapter content
