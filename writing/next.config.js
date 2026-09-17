@@ -10,9 +10,15 @@ const nextConfig = {
                 permanent: false,
             },
             {
-                // the root admin path is blank and should redirect to the dashboard for convenience
+                // the root admin path is blank and should redirect to the dashboard
                 source: '/writing/admin',
                 destination: '/writing/admin/dashboard',
+                permanent: true,
+            },
+            {
+                // the root stories path is blank and should redirect back to the main writing page
+                source: '/writing/stories',
+                destination: '/writing',
                 permanent: true,
             }
         ]
