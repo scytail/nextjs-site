@@ -28,12 +28,12 @@ export default async function TitlePage({params, searchParams}: {params: Promise
   return (
     <>
       <div className="py-8 max-w-6xl mx-auto flex flex-col items-center">
-        <h1 className="text-4xl font-semibold italic">{title.title_name}</h1>
+        <h1 className="text-4xl px-8 font-semibold italic text-center">{title.title_name}</h1>
         {title.private && (
           <h2 className="mt-2 text-sm dark:text-gray-500 text-gray-600 italic">(Private Publication)</h2>
         )}
       </div>
-      <main className="mx-auto px-4 max-w-6xl mb-16">
+      <main className="mx-auto px-8 max-w-6xl mb-16">
         <TitleBody title={title} />
       </main>
     </>

@@ -24,9 +24,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="data-theme">
-          <div className='flex min-h-screen from-slate-200 to-slate-100 bg-gradient-to-tr dark:from-slate-900 dark:to-slate-800'>
+          <div className='flex flex-col lg:flex-row min-h-screen from-slate-200 to-slate-100 bg-gradient-to-tr dark:from-slate-900 dark:to-slate-800'>
             <Sidebar />
-            <main className='flex-1 flex flex-col'>
+            <main className='flex flex-col'>
               {children}
             </main>
             <ScrollButton />

@@ -1,12 +1,11 @@
 'use client';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFeatherPointed, faCircleHalfStroke, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faFeatherPointed, faCircleHalfStroke, faHome, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'next-themes';
 import ActionButton from './actionButton';
 import LinkElement from './linkElement';
 import { usePathname } from 'next/navigation';
-import { Tables } from '@/app/api/models/database.types';
 
 export interface SidebarLinks {
   id: string;
@@ -14,7 +13,7 @@ export interface SidebarLinks {
   path: string;
 }
 
-function BackNavigation() {
+function TitleLink() {
   if (usePathname() === '/writing') {
     return null;
   }
@@ -25,6 +24,21 @@ function BackNavigation() {
   }
 }
 
+function BackNavigation() {
+  if (usePathname() === '/writing') {
+    return (
+      <a href='/' title="Back to home portfolio" className="py-3">
+        <ActionButton icon={faHome} />
+      </a>
+    );
+  }
+  return (
+    <a href='/writing' title="Back to title list" className="py-3">
+      <ActionButton icon={faArrowLeft} />
+    </a>
+  )
+}
+
 export default function SidebarClient({ titles }: { titles: SidebarLinks[] }) {
   const { theme, setTheme } = useTheme();
 
@@ -33,44 +47,63 @@ export default function SidebarClient({ titles }: { titles: SidebarLinks[] }) {
   }
 
   return (
-    <div className="flex flex-col items-start mx-5 sticky top-0 h-screen">
-      <FontAwesomeIcon icon={faFeatherPointed} className='self-center fill-neutral-500 text-2xl text-neutral-500 text-9xl my-10' />
-      <div className='pl-10'>
-        <div id='title' className='mb-8'>
-          <h1 className='text-3xl'>The Writing Desk</h1>
-          <h2 className='text-lg text-zinc-500'>
-            <a className='text-base hover:underline decoration-dotted' href='/' target='_blank'>Ben Schwabe</a>
-          </h2>
-        </div>
-        <ul id='nav'>
-          <li className='text-base mb-2 text-lg'>
-            <strong>
-            <BackNavigation />
-            </strong>
-          </li>
-          {titles.map((t) => (
-            <li key={t.id} className='text-base ml-2'>
-              <LinkElement text={t.displayText} path={t.path} />
+    <>
+      { /* Desktop Sidebar */}
+      <div className="hidden flex-1/3 lg:flex flex-col items-start mx-5 sticky top-0 h-screen">
+        <FontAwesomeIcon icon={faFeatherPointed} className='self-center fill-neutral-500 text-2xl text-neutral-500 text-9xl my-10' />
+        <div className='pl-10'>
+          <div id='title' className='mb-8'>
+            <h1 className='text-3xl'>The Writing Desk</h1>
+            <h2 className='text-lg text-zinc-500'>
+              <a className='text-base hover:underline decoration-dotted' href='/' target='_blank'>Ben Schwabe</a>
+            </h2>
+          </div>
+          <ul id='nav'>
+            <li className='text-base mb-2 text-lg'>
+              <strong>
+                <TitleLink />
+              </strong>
             </li>
-          ))}
-        </ul>
-      </div> 
-      <div id='links' className="flex flex-row mt-10 gap-x-2 self-center items-center">
-        <a href='/' title="Back to home portfolio">
-          <ActionButton icon={faHome} />
-        </a>
-        <button
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className='ease-in-out duration-300 text-2xl text-neutral-500 hover:text-cyan-500 cursor-pointer'
-          aria-label='Toggle dark mode'
-          title='Toggle dark mode'
-        >
-          <ActionButton icon={faCircleHalfStroke} />
-        </button>
+            {titles.map((t) => (
+              <li key={t.id} className='text-base ml-2'>
+                <LinkElement text={t.displayText} path={t.path} />
+              </li>
+            ))}
+          </ul>
+        </div> 
+        <div id='links' className="flex flex-row mt-10 gap-x-2 self-center items-center">
+          <a href='/' title="Back to home portfolio">
+            <ActionButton icon={faHome} />
+          </a>
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className='ease-in-out duration-300 text-2xl text-neutral-500 hover:text-cyan-500 cursor-pointer'
+            aria-label='Toggle dark mode'
+            title='Toggle dark mode'
+          >
+            <ActionButton icon={faCircleHalfStroke} />
+          </button>
+        </div>
+        <div id='footer' className='my-20 dark:text-slate-700 text-slate-400'>
+          <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2026</a>
+        </div>
       </div>
-      <div id='footer' className='my-20 dark:text-slate-700 text-slate-400'>
-        <a href='https://github.com/scytail/nextjs-site' className='hover:text-slate-600 hover:underline decoration-dotted' target='_blank'>&copy;Ben Schwabe 2026</a>
+      
+      { /* Mobile Header */ }
+      <div className='lg:hidden flex flex-row justify-between items-center px-5 py-3 sticky top-0'>
+        <FontAwesomeIcon icon={faFeatherPointed} className='fill-neutral-500 text-2xl text-neutral-500 text-3xl' />
+        <div className='flex flex-row gap-x-2'>
+          <BackNavigation />
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className='ease-in-out duration-300 text-2xl text-neutral-500 hover:text-cyan-500 cursor-pointer'
+            aria-label='Toggle dark mode'
+            title='Toggle dark mode'
+          >
+            <ActionButton icon={faCircleHalfStroke} />
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
