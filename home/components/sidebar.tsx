@@ -15,9 +15,6 @@ export default function Sidebar( {navbarLinkClickHandler, viewedContent}: any ) 
         <div id='title' className='mb-8'>
           <h1 className='text-4xl text-white'>Ben Schwabe</h1>
           <h2 className='text-2xl text-slate-500'>Software Engineer</h2>
-          <h2 className='text-lg text-zinc-500'>
-            <a className='text-base hover:underline decoration-dotted' href='https://gomomentus.com' target='_blank'>Momentus Technologies</a>
-          </h2>
         </div>
         <ul id='nav'>
           <li className='text-base text-zinc-500'>

@@ -4,8 +4,8 @@ export default function Experience() {
       <h1 className="text-4xl text-white mb-2">Professional Experience</h1>
       <div className="text-white flex-wrap grid grid-cols-3 gap-x-10 gap-y-4 mb-4">
         <div className="text-base text-slate-500 text-right pt-1">
-          June 2018 - Present
-          <div className="text-sm text-slate-500 italic">8+ years</div>
+          June 2018 - October 2026
+          <div className="text-sm text-slate-500 italic">8 years 4 months</div>
         </div>
         <div className="col-span-2">
           <h2 className="text-2xl text-white">Senior Software Engineer</h2>
@@ -14,12 +14,15 @@ export default function Experience() {
             Design, develop, and deliver high quality solutions for a diverse array of products in the event management world, and maintain existing enterprise applications to the satisfaction of relevant stakeholders.
             <h4 className="font-bold mt-3">Responsibilities</h4>
             <ul className="list-disc list-outside">
+              <li className="ml-4">Build quality software by seamlessly working between hand-coded and LLM-assisted development</li>
+              <li className="ml-4">Department leader guiding development optimization by researching and advising LLM tooling</li>
               <li className="ml-4">Work with teams of developers to design databases and business-layer code</li>
               <li className="ml-4">Interface with customers and product owners to build out accessible web-based UI controls to their specifications</li>
-              <li className="ml-4">Squash bugs in a fast-pased, agile environment</li>
+              <li className="ml-4">Squash bugs in a fast-paced, agile environment</li>
             </ul>
             <h4 className="font-bold mt-3">Projects</h4>
             <ul className="list-disc list-outside">
+              <li className="ml-4">Rapidly prototype and develop an enterprise-scale web application as a hub for customer-facing event managemen</li>
               <li className="ml-4">Construct a WYSIWYG registration badge editor</li>
               <li className="ml-4">Lead a team in designing and build financials API architecture</li>
               <li className="ml-4">Rebuild an automated email-notification system for a </li>
@@ -30,8 +33,8 @@ export default function Experience() {
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">.NET</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">SQL</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Angular</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Durandal</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Aurelia</div>
+            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Claude Code</div>
             <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Agile</div>
           </div>
         </div>
