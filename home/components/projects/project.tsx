@@ -19,7 +19,7 @@ export default function Project({
       <span className="grow text-base">{description}</span>
       <div className="flex flex-row flex-wrap gap-1 mt-2">
         {tags.map((tag) => (
-          <Pill text={tag} />
+          <Pill key={tag} text={tag} />
         ))}
       </div>
     </a>
