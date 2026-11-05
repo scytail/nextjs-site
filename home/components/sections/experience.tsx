@@ -1,3 +1,5 @@
+import { Pill } from "../shared/pill"
+
 export default function Experience() {
   return (
     <div>
@@ -30,12 +32,12 @@ export default function Experience() {
             </ul>
           </div>
           <div className="flex flex-row flex-wrap gap-1 mt-2">
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">.NET</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">SQL</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Angular</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Aurelia</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Claude Code</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Agile</div>
+            <Pill text=".NET" />
+            <Pill text="SQL" />
+            <Pill text="Angular" />
+            <Pill text="Aurelia" />
+            <Pill text="Claude Code" />
+            <Pill text="Agile" />
           </div>
         </div>
         <div className="text-base text-slate-500 text-right pt-1">
@@ -62,8 +64,8 @@ export default function Experience() {
             </ul>
           </div>
           <div className="flex flex-row flex-wrap gap-1 mt-2">
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Python</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Linux</div>
+            <Pill text="Python" />
+            <Pill text="Linux" />
           </div>
         </div>
         <div className="text-base text-slate-500 text-right pt-1">
@@ -87,10 +89,10 @@ export default function Experience() {
             </ul>
           </div>
           <div className="flex flex-row flex-wrap gap-1 mt-2">
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">.NET</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">SQL</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Durandal</div>
-            <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Waterfall</div>
+            <Pill text=".NET" />
+            <Pill text="SQL" />
+            <Pill text="Typescript" />
+            <Pill text="Waterfall" />
           </div>
         </div>
       </div>
