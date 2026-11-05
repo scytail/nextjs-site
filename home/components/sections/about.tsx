@@ -1,6 +1,7 @@
 export default function About() {
   return (
     <div>
+      <h1 className="lg:hidden text-4xl mb-2 text-slate-200">About</h1>
       <div className="flex-wrap mb-3">
         Hey, I'm Ben; welcome to my little corner of the internet! I am a passionate full-stack developer based in Saint Louis, Missouri. I take pleasure in learning new technologies, and view each project as a creative challenge.
         <br />
