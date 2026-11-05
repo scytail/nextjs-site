@@ -1,17 +1,17 @@
 export default function Experience() {
   return (
     <div>
-      <h1 className="text-4xl text-white mb-2">Professional Experience</h1>
-      <div className="text-white flex-wrap grid grid-cols-3 gap-x-10 gap-y-4 mb-4">
+      <h1 className="text-4xl mb-2 text-slate-200">Professional Experience</h1>
+      <div className="flex-wrap grid grid-cols-3 gap-x-10 gap-y-4 mb-4">
         <div className="text-base text-slate-500 text-right pt-1">
           June 2018 - October 2026
           <div className="text-sm text-slate-500 italic">8 years 4 months</div>
         </div>
         <div className="col-span-2">
-          <h2 className="text-2xl text-white">Senior Software Engineer</h2>
-          <h3 className="text-lg text-slate-500"><a href="https://gomomentus.com" className="hover:underline decoration-dotted" target="_blank">Momentus Technologies</a></h3>
-          <div className="text-base text-white">
-            Design, develop, and deliver high quality solutions for a diverse array of products in the event management world, and maintain existing enterprise applications to the satisfaction of relevant stakeholders.
+          <h2 className="text-2xl text-slate-300">Senior Software Engineer</h2>
+          <h3 className="text-lg text-slate-500 mb-3"><a href="https://gomomentus.com" className="underline decoration-dotted hover:text-cyan-500" target="_blank">Momentus Technologies</a></h3>
+          <div className="text-base">
+            <span>Design, develop, and deliver high quality solutions for a diverse array of products in the event management world, and maintain existing enterprise applications to the satisfaction of relevant stakeholders.</span>
             <h4 className="font-bold mt-3">Responsibilities</h4>
             <ul className="list-disc list-outside">
               <li className="ml-4">Build quality software by seamlessly working between hand-coded and LLM-assisted development</li>
@@ -43,9 +43,9 @@ export default function Experience() {
           <div className="text-sm text-slate-500 italic">3 years 10 months</div>
         </div>
         <div className="col-span-2">
-          <h2 className="text-2xl text-white">Operations Security Intern</h2>
-          <h3 className="text-lg text-slate-500"><a href="https://www.slu.edu/its/" className="hover:underline decoration-dotted" target="_blank">Saint Louis University <span className="italic">(Network Security Team)</span></a></h3>
-          <div className="text-base text-white">
+          <h2 className="text-2xl text-slate-300">Operations Security Intern</h2>
+          <h3 className="text-lg text-slate-500 mb-3"><a href="https://www.slu.edu/its/" className="underline decoration-dotted hover:text-cyan-500" target="_blank">Saint Louis University <span className="italic">(Network Security Team)</span></a></h3>
+          <div className="text-base">
             Develop and maintain network security measures to shield a university&apos;s network ecosystem.
             <h4 className="font-bold mt-3">Responsibilities</h4>
             <ul className="list-disc list-outside">
@@ -71,9 +71,9 @@ export default function Experience() {
           <div className="text-sm text-slate-500 italic">4 months</div>
         </div>
         <div className="col-span-2">
-          <h2 className="text-2xl text-white">Software Engineer Intern</h2>
-          <h3 className="text-lg text-slate-500"><a href="https://gomomentus.com" className="hover:underline decoration-dotted" target="_blank">Momentus Technologies</a></h3>
-          <div className="text-base text-white">
+          <h2 className="text-2xl text-slate-300">Software Engineer Intern</h2>
+          <h3 className="text-lg text-slate-500 mb-3"><a href="https://gomomentus.com" className="underline decoration-dotted hover:text-cyan-500" target="_blank">Momentus Technologies</a></h3>
+          <div className="text-base ">
             Work closely with a hard-working team of developers to tackle bugs and add enhancement to an enterprise-scale product, delivering value to the company.
             <h4 className="font-bold mt-3">Responsibilities</h4>
             <ul className="list-disc list-outside">

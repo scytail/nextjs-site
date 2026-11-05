@@ -14,7 +14,7 @@ export default function Projects() {
           </a>
           <a href="https://github.com/scytail/nextjs-site" className="flex flex-col border-2 border-slate-500 rounded-xl p-2 hover:bg-slate-700/75 duration-100" target="_blank">
             <h2 className="text-2xl font-bold">Portfolio Site</h2>
-            <span className="grow text-base">You are here! Built from scratch using the NextJS framework and deployed on the Vercel network, this portfolio site boasts a snappy interface and a clean, cool design.</span>
+            <span className="grow text-base">You are here! Built by hand using the NextJS framework and deployed on the Vercel network, this portfolio site boasts a snappy interface and a clean, cool design.</span>
             <div className="flex flex-row flex-wrap gap-1 mt-2">
               <div className="bg-sky-500 text-slate-800 px-3 rounded-full">Next.js</div>
               <div className="bg-sky-500 text-slate-800 px-3 rounded-full">React</div>
